@@ -3,7 +3,7 @@
 
 // themeIcon.addEventListener('click', function() {
 //   document.body.classList.toggle('dark-theme');
-  
+
 //   if (document.body.classList.contains('dark-theme')) {
 //     themeIcon.innerHTML = '<i class="fa-solid fa-sun" id="toggleRThemeIcon"></i>';
 //   } else {
@@ -15,8 +15,6 @@
  * There is no direct way in JavaScript to clear the entire browser cache (including all cached files, cookies, etc.) for security reasons.
  * However, you can clear localStorage and sessionStorage for your site as follows:
  */
-
-
 
 // Run this block only once ever (on first visit)
 // if (!localStorage.getItem("hasInitializedRegistration")) {
@@ -30,6 +28,28 @@
 //   });
 // }
 
+// Add this script before the closing </body> tag or in your main JS file
+// document.getElementById("google-login").onclick = function () {
+//   localStorage.setItem(
+//     "user",
+//     JSON.stringify({ provider: "Google", name: "Google User" })
+//   );
+//   window.location.href = "start.html";
+// };
+// document.getElementById("facebook-login").onclick = function () {
+//   localStorage.setItem(
+//     "user",
+//     JSON.stringify({ provider: "Facebook", name: "Facebook User" })
+//   );
+//   window.location.href = "start.html";
+// };
+// document.getElementById("twitter-login").onclick = function () {
+//   localStorage.setItem(
+//     "user",
+//     JSON.stringify({ provider: "Twitter", name: "Twitter User" })
+//   );
+//   window.location.href = "start.html";
+// };
 
 // Start Left Side - Form //
 
@@ -191,11 +211,15 @@ async function validateEmail() {
   } else if (isManuallyBlockedDomain(EMAIL.value)) {
     Espan.textContent = "Disposable email addresses are not allowed";
     return false;
-  }else {
+  } else {
     // Check for disposable email using Kickbox API
     Espan.textContent = "Checking email validity...";
     try {
-      const response = await fetch(`https://open.kickbox.com/v1/disposable/${encodeURIComponent(EMAIL.value)}`);
+      const response = await fetch(
+        `https://open.kickbox.com/v1/disposable/${encodeURIComponent(
+          EMAIL.value
+        )}`
+      );
       const data = await response.json();
       if (data.disposable) {
         Espan.textContent = "Disposable email addresses are not allowed";
@@ -360,7 +384,7 @@ function validatePasswordMatching() {
   }
 }
 
-R_PASSWORD.addEventListener("input", validatePasswordMatching)
+R_PASSWORD.addEventListener("input", validatePasswordMatching);
 
 // // Form submission handler
 // submit.addEventListener("click", function (e) {
@@ -373,7 +397,6 @@ R_PASSWORD.addEventListener("input", validatePasswordMatching)
 //   const isLNameValid = validateLastName();
 //   const isPasswordMatchValid = validatePasswordMatching();
 
-
 //   // Only submit if all validations pass
 //   if (isEmailValid && isPasswordValid && isFNameValid && isLNameValid && isPasswordMatchValid) {
 //     // Save email and password to localStorage
@@ -384,20 +407,18 @@ R_PASSWORD.addEventListener("input", validatePasswordMatching)
 //     document.addEventListener('DOMContentLoaded', function() {
 //       // Get registration status from localStorage
 //       const isRegistered = localStorage.getItem('isRegistered');
-      
+
 //       // If user is not registered, redirect to registration page
 //       if (isRegistered === 'true') {
 //         // Redirect to index/registration page
 //         window.location.href = 'index.html'; // Adjust this URL as needed
 //       }
 //     });
-//     //location.replace('login.html'); 
+//     //location.replace('login.html');
 
 //     // submit.form.submit();
 //   }
 // });
-
-
 
 // Form submission handler
 submit.addEventListener("click", function (e) {
@@ -411,14 +432,20 @@ submit.addEventListener("click", function (e) {
   const isPasswordMatchValid = validatePasswordMatching();
 
   // Only submit if all validations pass
-  if (isEmailValid && isPasswordValid && isFNameValid && isLNameValid && isPasswordMatchValid) {
+  if (
+    isEmailValid &&
+    isPasswordValid &&
+    isFNameValid &&
+    isLNameValid &&
+    isPasswordMatchValid
+  ) {
     // Save email and password to localStorage
-    localStorage.setItem('userEmail', EMAIL.value);
-    localStorage.setItem('userPassword', PASSWORD.value);
+    localStorage.setItem("userEmail", EMAIL.value);
+    localStorage.setItem("userPassword", PASSWORD.value);
     localStorage.setItem("isRegistered", "true");
-    
+
     // Redirect to login page after successful registration
-    location.replace('login.html');
+    location.replace("login.html");
   }
 });
 
@@ -447,54 +474,53 @@ resetInactivityTimer();
 // Start Right Side - Text //
 
 const quotes = [
-    "Believe you can and you're halfway there. - Theodore Roosevelt",
-    "The future belongs to those who prepare for it today. - Malcolm X",
-    "Success is the sum of small efforts, repeated. - R. Collier",
-    "You don't have to be great to start, but you have to start to be great. - Zig Ziglar",
-    "The secret of getting ahead is getting started. - Mark Twain",
-    "Small daily improvements are the key to staggering long-term results. - Robin Sharma"
+  "Believe you can and you're halfway there. - Theodore Roosevelt",
+  "The future belongs to those who prepare for it today. - Malcolm X",
+  "Success is the sum of small efforts, repeated. - R. Collier",
+  "You don't have to be great to start, but you have to start to be great. - Zig Ziglar",
+  "The secret of getting ahead is getting started. - Mark Twain",
+  "Small daily improvements are the key to staggering long-term results. - Robin Sharma",
 ];
 
-const container = document.getElementById('quoteContainer');
+const container = document.getElementById("quoteContainer");
 let currentIndex = 0;
 
 function createQuoteElement(text) {
-    const quote = document.createElement('p');
-    quote.className = 'motivation-text';
-    quote.textContent = text;
-    
-    // Add random sparkle elements
-    for(let i = 0; i < 15; i++) {
-        const sparkle = document.createElement('div');
-        sparkle.className = 'sparkle';
-        sparkle.style.left = `${Math.random() * 100}%`;
-        sparkle.style.top = `${Math.random() * 100}%`;
-        sparkle.style.animationDelay = `${Math.random() * 2}s`;
-        quote.appendChild(sparkle);
-    }
+  const quote = document.createElement("p");
+  quote.className = "motivation-text";
+  quote.textContent = text;
 
-    return quote;
+  // Add random sparkle elements
+  for (let i = 0; i < 15; i++) {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.style.left = `${Math.random() * 100}%`;
+    sparkle.style.top = `${Math.random() * 100}%`;
+    sparkle.style.animationDelay = `${Math.random() * 2}s`;
+    quote.appendChild(sparkle);
+  }
+
+  return quote;
 }
 
 function showNextQuote() {
-    const currentQuote = container.querySelector('.visible');
-    if(currentQuote) currentQuote.classList.remove('visible');
+  const currentQuote = container.querySelector(".visible");
+  if (currentQuote) currentQuote.classList.remove("visible");
 
-    const newQuote = createQuoteElement(quotes[currentIndex]);
-    container.appendChild(newQuote);
-    
-    // Trigger animation
-    setTimeout(() => newQuote.classList.add('visible'), 250);
-    
-    
-    // Random text effects
-    newQuote.style.textShadow = `
+  const newQuote = createQuoteElement(quotes[currentIndex]);
+  container.appendChild(newQuote);
+
+  // Trigger animation
+  setTimeout(() => newQuote.classList.add("visible"), 250);
+
+  // Random text effects
+  newQuote.style.textShadow = `
         ${Math.random() * 4}px ${Math.random() * 4}px 4px rgba(0,0,0,0.3),
         0 0 20px rgba(255,255,255,${Math.random() * 0.3})
     `;
-    
-    // // Update index
-    currentIndex = (currentIndex + 1) % quotes.length;
+
+  // // Update index
+  currentIndex = (currentIndex + 1) % quotes.length;
 }
 
 // Initial call

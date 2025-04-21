@@ -178,7 +178,7 @@ nav {
   width: 80%;
   padding-left: 10%;
   padding-right: 10%;
-  padding-top: 10%;
+  padding-top: 5%;
   margin-top: 10%;
   height: 100%;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); /* Improves readability */
@@ -189,21 +189,22 @@ nav {
 }
 
 .upper-class h1 {
-  margin-bottom: 5%;
+  margin-bottom: 7%;
   font-size: 5rem;
 }
 
 .upper-class p {
   font-size: 2rem;
+  margin-bottom: 3%;
 }
 
 .lower-class {
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 }
 
 .lower-class p {
   font-size: 1.5rem;
-  margin-bottom: 10%;
+  margin-bottom: 15%;
 }
 
 /* Responsive font sizes */
