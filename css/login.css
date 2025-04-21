@@ -5,6 +5,52 @@
   box-sizing: border-box;
 }
 
+/* Noto Sans base class */
+.noto-sans-unique {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+/* Apply font to body and headings with suitable weights */
+body,
+input,
+button,
+label,
+a,
+span,
+p {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-weight: 400; /* Regular for body text */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700; /* Bold for headings */
+}
+
+.my-form h2 {
+  font-weight: 600; /* Semi-bold for form title */
+}
+
+.form-group label {
+  font-weight: 500; /* Medium for labels */
+}
+
+.primary-btn,
+.secondary-btn {
+  font-weight: 600; /* Semi-bold for buttons */
+}
+
+.copyright {
+  font-weight: 400; /* Regular for copyright */
+}
+
+
 /* Theme Variables - Add at the top of your CSS file */
 :root {
   /* Light Theme Colors (Default) */
