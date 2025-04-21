@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Page</title>
+  <link rel="stylesheet" href="../css/registration.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <!-- <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    // Initialize isRegistered to false if it doesn't exist yet
+    if (localStorage.getItem('isRegistered') === null) {
+      localStorage.setItem('isRegistered', false);
+    }
+  });
+  </script> -->
+</head>
+
+<body>
+  <main>
+    <section class="left-side" role="main">
+      <header>
+        <nav>
+          <img src="../assets/images/LOGO.jpeg" width="50px" height="50px" alt="">
+          <!-- <button id="toggle-R-theme" class="toggleRButtonTheme"><i id="toggleRThemeIcon" class="fa-solid fa-moon"></i></button> -->
+        </nav>
+      </header>
+      <div class="my-form">
+        <form id="registration-form" enctype="multipart/form-data" method="get" aria-labelledby="form-heading">
+          <h2 id="form-heading">Sign Up Page</h2>
+
+          <!-- Improve form fields -->
+          <div class="form-group">
+            <label for="FName" id="FName-label" class="FName">First Name*:</label>
+            <input type="text" name="FName" id="FName" placeholder="Ahmed" required aria-required="true"
+              aria-describedby="FNSpan">
+            <span class="FNameSpan" id="FNSpan" role="alert" aria-live="assertive"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="LName" id="LName-label" class="LName">Last Name*:</label>
+            <input type="text" name="LName" id="LName" placeholder="Ragab" required aria-required="true"
+              aria-describedby="LNSpan">
+            <span class="LNameSpan" id="LNSpan" role="alert" aria-live="assertive"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email" id="email-label" class="email">Email*:</label>
+            <input type="email" name="email" id="email" placeholder="example@domain.com" required aria-required="true"
+              aria-describedby="ESpan">
+            <span class="EmailSpan" id="ESpan" role="alert" aria-live="assertive"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="password" id="password-label" class="password">Password*:</label>
+            <div class="password-container">
+              <input type="password" id="password" placeholder="******" required aria-required="true"
+                aria-describedby="PSpan">
+              <button type="button" id="showPass" class="toggle-password" aria-label="Toggle password visibility">
+                <i class="fa-solid fa-eye-slash" id="togglePasswordIcon" aria-hidden="true"></i>
+              </button>
+              <span class="PassSpan" id="PSpan" role="alert" aria-live="assertive"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="repeatPassword" id="repeatPassword-label" class="repeatPassword">Repeat Password*:</label>
+            <div class="password-container">
+              <input type="password" id="repeatPassword" placeholder="******" required aria-required="true"
+                aria-describedby="R_PSpan">
+              <button type="button" id="showRPass" class="toggle-password" aria-label="Toggle password visibility">
+                <i class="fa-solid fa-eye-slash" id="toggleRPasswordIcon" aria-hidden="true"></i>
+              </button>
+              <span class="RepeatPassSpan" id="R_PSpan" role="alert" aria-live="assertive"></span>
+            </div>
+          </div>
+
+          <div class="button-container">
+            <button type="submit" id="registrationS" class="primary-btn">Sign Up</button>
+            <span class="or-divider">or</span>
+            <!-- <button type="button" id="LoginS" class="secondary-btn" >Login</button> -->
+            <a href="login.html" id="LoginS" class="secondary-btn">Login</a>
+
+          </div>
+
+          <div class="social-login">
+            <p id="social-heading">Continue with</p>
+            <div class="social-buttons" role="group" aria-labelledby="social-heading">
+              <button type="button" class="social-btn google" aria-label="Sign in with Google">
+                <i class="fa-brands fa-google" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="social-btn facebook" aria-label="Sign in with Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </button>
+              <button type="button" class="social-btn twitter" aria-label="Sign in with Twitter">
+                <i class="fa-brands fa-twitter"></i>
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </section>
+    <section class="right-side" role="banner">
+      <div id="quoteContainer"></div>
+    </section>
+
+  </main>
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      // Check if the storage has already been cleared in this session
+      if (!sessionStorage.getItem('storageCleared')) {
+        // Clear storage
+        localStorage.clear();
+        sessionStorage.clear(); // Clear session storage itself first
+
+        // Set a flag in sessionStorage to indicate it has been cleared for this session
+        // Note: Since we just cleared sessionStorage, we need to set the flag *after* clearing.
+        sessionStorage.setItem('storageCleared', 'true');
+        console.log('Storage cleared for this session.');
+      } else {
+        console.log('Storage already cleared for this session.');
+      }
+    });
+  </script>
+  <script src="js/auth-guard.js"></script>
+  <script src="../js/registration.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+</body>
+
+</html>

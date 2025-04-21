@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="../css/login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <main>
+    <header>
+      <nav>
+        <img src="../assets/images/LOGO.jpeg" width="50px" height="50px" alt="">
+        <!-- <button id="toggle-theme" class="toggleButtonTheme"><i id="toggleThemeIcon" class="fa-solid fa-moon"></i></button> -->
+      </nav>
+    </header>
+    <section class="left-side" role="banner">
+      <video class="background-video" autoplay muted loop playsinline>
+        <!-- <source src="c:\Users\DELL\Downloads\140809-776043767_small.mp4" type="video/mp4"> -->
+        <source src="../assets/video/studying.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="content-overlay">
+        <div class="upper-class">
+          <h1>EXAM</h1>
+          <p>
+            Hey there! It's great to have you as part of the team
+          </p>
+        </div>
+        <div class="lower-class">
+          <p>
+            We are glad to see you again! Get access to your Orders,
+            Wishlist Recommendations.Nulla facilisi. Nullam in magna
+            id dolor blandit rutrum eget vulputate augue sed eu leo eget
+            risus dummy text here now ready works imperdiet.
+          </p>
+          <div class="footer-left">
+            <ul class="socials">
+              <li>
+                <a href="https://www.facebook.com/" class="facebook-icon" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+              </li>
+              <li>
+                <a href="https://x.com/home" class="twitter-icon" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+              </li>
+              <li >
+                <a href="https://www.linkedin.com/" class="linkedin-icon" title="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+              </li>
+            </ul>
+            <span>
+              Copyright © 2025 Exam. All Rights Reserved
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="right-side" role="main">
+      <div class="my-form">
+        <form action="start.html" id="login-form" enctype="multipart/form-data" method="get"
+          aria-labelledby="form-heading">
+          <h2 id="form-heading">Login Page</h2>
+
+          <!-- Improve form fields -->
+          <div class="form-group">
+            <label for="email" id="email-label" class="email">Email*:</label>
+            <input type="email" name="email" id="email" placeholder="example@domain.com" required aria-required="true"
+              aria-describedby="ESpan">
+            <span class="EmailSpan" id="ESpan" role="alert" aria-live="assertive"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="password" id="password-label" class="password">Password*:</label>
+            <div class="password-container">
+              <input type="password" id="password" name="password" placeholder="******" required aria-required="true"
+                aria-describedby="PSpan">
+              <button type="button" id="showPass" class="toggle-password" aria-label="Toggle password visibility">
+                <i class="fa-solid fa-eye-slash" id="togglePasswordIcon" aria-hidden="true"></i>
+              </button>
+              <span class="PassSpan" id="PSpan" role="alert" aria-live="assertive"></span>
+            </div>
+            <a href="forgot-password.html" class="forgot-password">
+              Forgot Password?
+            </a>
+          </div>
+
+          <div class="button-container">
+            <button type="submit" id="LoginS" class="primary-btn">Login</button>
+            <span class="or-divider">or</span>
+            <!-- <a href="registration.html" class="secondary-btn">Sign Up</a> -->
+            <!-- onclick="location.replace('registration.html')" -->
+            <button type="button" class="secondary-btn" id="si" >Sign Up</button>
+          </div>
+
+          <div class="social-login">
+            <p id="social-heading">Continue with</p>
+            <div class="social-buttons" role="group" aria-labelledby="social-heading">
+              <button type="button" class="social-btn google" aria-label="Sign in with Google">
+                <i class="fa-brands fa-google" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="social-btn facebook" aria-label="Sign in with Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </button>
+              <button type="button" class="social-btn twitter" aria-label="Sign in with Twitter">
+                <i class="fa-brands fa-twitter"></i>
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="../js/login.js"></script>
+  <script src="js/auth-guard.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" ></script>
+
+
+</body>
+
+</html>

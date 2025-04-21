@@ -1,0 +1,720 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+/* Theme Variables - Add at the top of your CSS file */
+:root {
+  /* Light Theme Colors (Default) */
+  --primary-color: #007bff;
+  --primary-hover: #0069d9;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --border-color: #ddd;
+  --input-bg: #f9f9f9;
+  --input-focus-border: #007bff;
+  --input-focus-shadow: rgba(0, 123, 255, 0.1);
+  --placeholder-color: #767676;
+  --error-color: #d91e18;
+  --divider-color: #aaa;
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --icon-color: #777;
+  --toggle-icon: "\f186"; /* moon */
+  --social-hover-bg: rgba(255, 255, 255, 0.3);
+  --toggle-theme: black;
+}
+
+/* Dark Theme Class */
+.dark-theme {
+  --primary-color: #4dabff;
+  --primary-hover: #3d8ddb;
+  --text-primary: #f1f1f1;
+  --text-secondary: #cccccc;
+  --bg-primary: #1e1e1e;
+  --bg-secondary: #2d2d2d;
+  --border-color: #444;
+  --input-bg: #333333;
+  --input-focus-border: #4dabff;
+  --input-focus-shadow: rgba(77, 171, 255, 0.2);
+  --placeholder-color: #999999;
+  --error-color: #ff6b6b;
+  --divider-color: #666;
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --icon-color: #aaaaaa;
+  --toggle-icon: "\f185"; /* sun */
+  --social-hover-bg: rgba(255, 255, 255, 0.15);
+  --toggle-theme: yellow;
+}
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+main {
+  display: flex;
+}
+header
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100; /* Ensures header appears above the video */
+  padding: 15px 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.toggleButtonTheme {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--toggle-theme);
+  font-size: 20px;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.toggleButtonTheme:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+/* Start Left Side Section */
+.left-side {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  width: 55%;
+}
+
+.left-side::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.content-overlay {
+  position: relative;
+  z-index: 1;
+  color: white;
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 10%;
+  margin-top: 10%;
+  height: 100%;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); /* Improves readability */
+}
+
+.upper-class {
+  margin-bottom: 2%;
+}
+
+.upper-class h1 {
+  margin-bottom: 5%;
+  font-size: 5rem;
+}
+
+.upper-class p {
+  font-size: 2rem;
+}
+
+.lower-class {
+  margin-bottom: 2%;
+}
+
+.lower-class p {
+  font-size: 1.5rem;
+  margin-bottom: 10%;
+}
+
+/* Responsive font sizes */
+@media (max-width: 992px) {
+  .upper-class h1 {
+    font-size: 4.5rem;
+  }
+  .upper-class p {
+    font-size: 1.7rem;
+  }
+  .lower-class p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .upper-class h1 {
+    font-size: 3.5rem;
+  }
+  .upper-class p {
+    font-size: 1.5rem;
+  }
+  .lower-class p {
+    font-size: 1.1rem;
+  }
+
+  .left-side
+  {
+    height: max-content;
+  }
+}
+
+@media (max-width: 480px) {
+  .upper-class h1 {
+    font-size: 2.5rem;
+  }
+  .upper-class p {
+    font-size: 1.3rem;
+  }
+  .lower-class p {
+    font-size: 0.9rem;
+  }
+  .left-side
+  {
+    height: max-content;
+  }
+}
+
+.lower-class span {
+  margin-bottom: 2%;
+}
+
+.footer-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.socials {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.socials li a {
+  color: #f8f9fa;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+
+/* Facebook hover */
+.facebook-icon:hover {
+  background-color: #1877f3;
+  color: #fff;
+}
+
+/* Twitter hover */
+.twitter-icon:hover {
+  background-color: #1da1f2;
+  color: #fff;
+}
+
+/* LinkedIn hover */
+.linkedin-icon:hover {
+  background-color: #0077b5;
+  color: #fff;
+}
+
+.copyright {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive styles for footer-left and socials */
+@media (max-width: 992px) {
+  .footer-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .socials {
+    gap: 12px;
+  }
+  .socials li a {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+  .copyright {
+    font-size: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .footer-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  .socials {
+    gap: 10px;
+  }
+  .socials li a {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  .copyright {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-left {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .socials {
+    gap: 8px;
+  }
+  .socials li a {
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+  }
+  .copyright {
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* End Left Side Section */
+
+/* Start Right Side Section */
+
+.right-side {
+  width: 45%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-primary);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  box-shadow: -5px 0 15px var(--shadow-color);
+}
+
+.my-form {
+  width: 80%;
+  max-width: 450px;
+}
+
+.my-form form {
+  background-color: var(--bg-secondary);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px var(--shadow-color);
+}
+
+.my-form h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: var(--text-primary);
+  text-align: center;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Make placeholder text visible enough */
+::placeholder {
+  color: var(--placeholder-color);
+  opacity: 1;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.3s;
+  background-color: var(--input-bg);
+}
+
+.form-group input:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 3px var(--input-focus-shadow);
+  background-color:  var(--input-bg);;
+  outline: 2px solid var(--text-primary);
+  outline-offset: 2px;
+}
+
+button:focus,
+input:focus,
+a:focus,
+.social-btn:focus {
+  outline: 2px solid var(--border-color);
+  outline-offset: 2px;
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 40px; /* Make space for the eye icon */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  /* Position relative to input, not the container */
+  top: 18px; /* Use fixed distance instead of percentage */
+  transform: none; /* Remove transform */
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--icon-color);
+  transition: color 0.3s;
+  z-index: 5; /* Ensure it stays above other elements */
+}
+
+.forgot-password {
+  display: block;
+  text-align: right;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.forgot-password:hover {
+  color: var(--icon-color);
+  text-decoration: underline;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.primary-btn {
+  flex: 1;
+  padding: 12px 20px;
+  background-color: var(--primary-color);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.or-divider {
+  margin: 0 15px;
+  color: var(--icon-color);
+  font-size: 14px;
+}
+
+.secondary-btn {
+  flex: 1;
+  padding: 12px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add diagonal slash for disabled buttons */
+.secondary-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-color: #a0a0a0;
+  border-color: #888888;
+}
+
+.secondary-btn:disabled::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 0, 0, 0.6);
+  transform: rotate(45deg);
+  transform-origin: center;
+  pointer-events: none;
+}
+
+/* Add a hover effect to make the slash more visible */
+.secondary-btn:disabled:hover::before {
+  height: 3px;
+  background-color: rgba(255, 0, 0, 0.8);
+}
+
+/* Optional: Draw an X instead of a slash */
+/*
+.secondary-btn:disabled:hover::before,
+.secondary-btn[disabled]:hover::before,
+.secondary-btn:disabled::before,
+.secondary-btn[disabled]::before,
+.secondary-btn:disabled:hover::after,
+.secondary-btn[disabled]:hover::after,
+.secondary-btn:disabled::after,
+.secondary-btn[disabled]::after {
+  content: "";
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 2px;
+  background: #888;
+  pointer-events: none;
+}
+.secondary-btn:disabled:hover::after,
+.secondary-btn[disabled]:hover::after,
+.secondary-btn:disabled::after,
+.secondary-btn[disabled]::after {
+  transform: rotate(45deg);
+}
+.secondary-btn:disabled:hover::before,
+.secondary-btn[disabled]:hover::before,
+.secondary-btn:disabled::before,
+.secondary-btn[disabled]::before {
+  transform: rotate(-45deg);
+}
+*/
+
+.social-login {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.social-login p {
+  margin-bottom: 15px;
+  color: var(--icon-color);
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.social-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.google {
+  background-color: #fff;
+  color: #dd4b39;
+  border: 1px solid #eee;
+}
+
+.facebook {
+  background-color: #1877f3;
+  color: #fff;
+}
+
+.twitter {
+  background-color: #1da1f2;
+  color: #fff;
+}
+
+/* Responsive styles for social login buttons */
+@media (max-width: 768px) {
+  .social-buttons {
+    gap: 10px;
+  }
+  .social-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-login {
+    margin-top: 15px;
+  }
+  .social-buttons {
+    gap: 8px;
+  }
+  .social-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Validation Message Styling */
+.EmailSpan,
+.PassSpan
+ {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #d91e18; /* Darkened red (passes AA contrast) */
+  font-weight: 500; /* Slightly bolder */
+  transition: all 0.2s ease;
+  padding-left: 2px;
+}
+
+/* Make the error message span display below everything else */
+.PassSpan
+{ 
+  display: block;
+  position: relative;
+  margin-top: 6px;
+  width: 100%;
+  z-index: 1;
+}
+
+/* For successful validation (empty state) */
+.EmailSpan:empty,
+.PassSpan:empty
+ {
+  margin-top: 0;
+  height: 0;
+}
+
+/* Animation for errors appearing */
+@keyframes errorShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* Apply animation when content appears */
+.EmailSpan:not(:empty),
+.PassSpan:not(:empty) {
+  animation: errorShake 0.4s ease-in-out;
+}
+
+/* Styling for password strength meter */
+.strength-meter {
+  margin-top: 8px;
+  width: 100%;
+  height: 5px;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.strength-bar {
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.strength-meter span {
+  position: absolute;
+  right: 0;
+  top: 8px;
+  font-size: 12px;
+  color: #333;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .right-side,
+  .left-side {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  .my-form {
+    width: 90%;
+  }
+}
+
+/* End Right Side Section */
