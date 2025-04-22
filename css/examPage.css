@@ -136,6 +136,7 @@ textarea:not([rows]) {
 .bookmarks .title {
   margin-left: 1.5rem;
   margin-top: 1rem;
+  font-size: 1.8rem;
 }
 .title-area a,
 .sidebar a {
@@ -314,7 +315,7 @@ textarea:not([rows]) {
 .qustion-area .choice input:checked + label::before {
   content: "✓";
   position: absolute;
-  left: .2rem;
+  left: 0.2rem;
   top: 50%;
   transform: translateY(-50%);
   font-weight: bold;
@@ -354,13 +355,13 @@ textarea:not([rows]) {
 .buttons .nav {
   background-color: rgba(77, 141, 219, 1);
 }
-.buttons .nav:hover{
+.buttons .nav:hover {
   background-color: rgb(40, 77, 122);
 }
 .buttons .mark-button {
   background-color: darkorange;
 }
-.buttons .mark-button:hover{
+.buttons .mark-button:hover {
   background-color: rgb(156, 86, 0);
 }
 .submit {
@@ -375,24 +376,24 @@ textarea:not([rows]) {
   border: 0;
   transition: all 0.3s ease;
 }
-.submit button[type="submit"]:hover{
+.submit button[type="submit"]:hover {
   background-color: #07520a;
 }
 
 @media only screen and (max-width: 768.98px) {
-  *{
+  * {
     font-size: 14px;
   }
-  .bookmarks{
+  .bookmarks {
     width: 40%;
   }
-  .bookmarks ul li a div{
+  .bookmarks ul li a div {
     font-size: 1rem;
   }
   .quiz-area form {
     flex-direction: column;
   }
-  .qustion-area .choice{
+  .qustion-area .choice {
     padding: 0;
   }
   .qustion-area .choice label {
@@ -423,39 +424,42 @@ textarea:not([rows]) {
     border-radius: 1.5rem;
     cursor: pointer;
   }
-  .opened{
+  .opened {
     width: 7% !important;
   }
 }
 
-@media only screen and (max-width: 425.98px) {
-  *{
-    font-size: 7px;
+@media only screen and (max-width: 450.98px) {
+  * {
+    font-size: 10px;
   }
-  .title-area a img, .sidebar a img{
+  .title-area a img,
+  .sidebar a img {
     max-width: 1.2rem;
   }
-  .bookmarks .title{
+  .bookmarks .title {
     font-size: 1.2rem;
   }
-  .opened{
-    width: 6% !important;
-  }
   .quiz-area{
+    height: 70%;
+  }
+  .opened {
+    width: 10% !important;
+  }
+  .quiz-area {
     margin-left: 1rem;
+    flex-grow: initial;
   }
 }
 @media only screen and (max-width: 375.98px) {
-  *{
-    font-size: 8px;
+  * {
+    font-size: 9px;
   }
-
 }
 @media only screen and (max-width: 320.98px) {
-  *{
+  * {
     font-size: 6px;
   }
-  
 }
 .collapsed {
   transform: translateX(-100%);
