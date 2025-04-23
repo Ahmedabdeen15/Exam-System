@@ -172,6 +172,7 @@ textarea:not([rows]) {
 .circle-question,
 .circle-number {
   display: inline-flex;
+  flex: none;
   background: radial-gradient(
     circle,
     rgba(77, 219, 136, 1) 50%,
@@ -179,11 +180,12 @@ textarea:not([rows]) {
   );
   align-items: center;
   justify-content: center;
-  width: 3.5rem;
+  width: 2rem;
   height: 2rem;
+  margin: 0;
   border-radius: 50%;
   color: white;
-  padding: 0.2rem;
+  padding: 0.3rem 0 0.4rem 0;
 }
 .circle-mark {
   background: radial-gradient(
@@ -261,6 +263,8 @@ textarea:not([rows]) {
 
 .qustion-area h1 {
   padding-bottom: 1rem;
+  padding-left: 1rem;
+  text-wrap: unset;
 }
 .quiz-area form {
   display: flex;
@@ -327,6 +331,20 @@ textarea:not([rows]) {
   outline-offset: 2px;
 }
 
+.disabled-link {
+  color: gray;
+  cursor: not-allowed;
+}
+.disabled-link :where(.circle-number, .fa-solid) {
+  background: radial-gradient(
+    circle,
+    rgb(136, 136, 136) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.disabled-link a {
+  pointer-events: none;
+}
 .buttons {
   display: flex;
   justify-content: center;
@@ -348,22 +366,34 @@ textarea:not([rows]) {
   margin-left: 0.5rem;
   transition: all 0.3s ease;
 }
+
 .buttons a label {
   text-transform: uppercase;
   cursor: pointer;
 }
+
 .buttons .nav {
   background-color: rgba(77, 141, 219, 1);
 }
+
 .buttons .nav:hover {
   background-color: rgb(40, 77, 122);
 }
+
 .buttons .mark-button {
   background-color: darkorange;
 }
+
 .buttons .mark-button:hover {
   background-color: rgb(156, 86, 0);
 }
+
+.disabled-button {
+  background-color: gray !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .submit {
   width: 100%;
   display: flex;
@@ -379,14 +409,7 @@ textarea:not([rows]) {
 .submit button[type="submit"]:hover {
   background-color: #07520a;
 }
-
-@media only screen and (max-width: 768.98px) {
-  * {
-    font-size: 14px;
-  }
-  .bookmarks {
-    width: 40%;
-  }
+@media only screen and (max-width: 1024.98px) {
   .bookmarks ul li a div {
     font-size: 1rem;
   }
@@ -424,6 +447,14 @@ textarea:not([rows]) {
     border-radius: 1.5rem;
     cursor: pointer;
   }
+}
+@media only screen and (max-width: 768.98px) {
+  * {
+    font-size: 14px;
+  }
+  .bookmarks {
+    width: 40%;
+  }
   .opened {
     width: 7% !important;
   }
@@ -440,7 +471,7 @@ textarea:not([rows]) {
   .bookmarks .title {
     font-size: 1.2rem;
   }
-  .quiz-area{
+  .quiz-area {
     height: 70%;
   }
   .opened {
@@ -520,6 +551,7 @@ textarea:not([rows]) {
 }
 
 @keyframes rotate {
-  100% { transform: rotate(360deg) }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-    

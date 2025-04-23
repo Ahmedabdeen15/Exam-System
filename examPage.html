@@ -39,79 +39,7 @@
                     <img src="assets/icons/sidebar-collapse.svg" alt="">
                 </a>
             </div>
-            <ul>
-                <li><a href="#">
-                        <div class="circle-check"><i class="fa-solid fa-check"></i></div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-mark"><i class="fa-solid fa-bookmark fa-xs"></i></div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-question"><i class="fa-solid fa-question fa-xs"></i></div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-number">4</div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-number">4</div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-number">4</div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-number">4</div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-number">4</div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-number">4</div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-number">4</div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-number">4</div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-number">4</div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-number">4</div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-number">4</div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-number">4</div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-number">4</div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-number">4</div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
-                <li><a href="#">
-                        <div class="circle-number">4</div>
-                        <div>What does HTML stand for?</div>
-                    </a></li>
+            <ul id="bookmarksQuestion">
             </ul>
         </div>
         <div class="quiz-area">
@@ -124,28 +52,14 @@
                     <i class="fa-regular fa-clock"></i>
                     <label id="timer">99:99</label>
                 </div>
-                <h1>
-                    1 - What does HTML stand for?
-                </h1>
+                <h1 id="question"></h1>
                 <form id="quiz-form">
-                    <div class="choice">
-                        <input type="radio" id="html" name="answers" value="HTML">
-                        <label for="html">Computer Style Sheets Computer Style Sheets HTML</label>
-                    </div>
-                    <div class="choice">
-                        <input type="radio" id="css" name="answers" value="CSS">
-                        <label for="css">Computer Style Sheets Computer Style Sheets CSS</label>
-                    </div>
-                    <div class="choice">
-                        <input type="radio" id="javascript" name="answers" value="JavaScript">
-                        <label for="javascript">Computer Style Sheets Computer Style Sheets JavaScript</label>
-                    </div>
                 </form>
             </div>
             <div class="buttons">
-                <a href="#" class="nav"><i class="fa-solid fa-arrow-left"></i> <label>back</label></a>
-                <a href="#" class="mark-button"><label>mark</label> <i class="fa-solid fa-bookmark"></i></a>
-                <a href="#" class="nav"><label>next</label> <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#" class="nav disabled-button" id="backButton"><i class="fa-solid fa-arrow-left"></i> <label>back</label></a>
+                <a href="#" class="mark-button" id="markButton"><label>mark</label> <i class="fa-solid fa-bookmark"></i></a>
+                <a href="#" class="nav " id="nextButton"><label>next</label> <i class="fa-solid fa-arrow-right"></i></a>
             </div>
             <div class="submit">
                 <button type="submit">Submit</button>

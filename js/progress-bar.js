@@ -15,5 +15,4 @@ function progressBarControl(value) {
   }
 }
 
-// Initialize
-progressBarControl(80);
+
