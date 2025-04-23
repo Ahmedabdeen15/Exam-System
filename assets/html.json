@@ -1,0 +1,564 @@
+{
+  "questions": [
+    {
+      "question": "What does HTML stand for?",
+      "answers": [
+        "Hyperlinks and Text Markup Language",
+        "HyperText Markup Language",
+        "Home Tool Markup Language",
+        "High-Level Text Machine Language"
+      ],
+      "isCorrect": "HyperText Markup Language"
+    },
+    {
+      "question": "Which tag is used to define the root of an HTML document?",
+      "answers": [
+        "<head>",
+        "<html>",
+        "<body>",
+        "<root>"
+      ],
+      "isCorrect": "<html>"
+    },
+    {
+      "question": "Which element is used to create a hyperlink?",
+      "answers": [
+        "<link>",
+        "<a>",
+        "<href>",
+        "<url>"
+      ],
+      "isCorrect": "<a>"
+    },
+    {
+      "question": "What is the correct HTML element for inserting a line break?",
+      "answers": [
+        "<lb>",
+        "<break>",
+        "<br>",
+        "<newline>"
+      ],
+      "isCorrect": "<br>"
+    },
+    {
+      "question": "Which attribute is used to specify a unique ID for an HTML element?",
+      "answers": [
+        "class",
+        "id",
+        "name",
+        "type"
+      ],
+      "isCorrect": "id"
+    },
+    {
+      "question": "Which tag is used to define an unordered list?",
+      "answers": [
+        "<ul>",
+        "<ol>",
+        "<li>",
+        "<list>"
+      ],
+      "isCorrect": "<ul>"
+    },
+    {
+      "question": "Which tag is used to define a table row?",
+      "answers": [
+        "<tr>",
+        "<td>",
+        "<th>",
+        "<table-row>"
+      ],
+      "isCorrect": "<tr>"
+    },
+    {
+      "question": "Which element is used to define a paragraph?",
+      "answers": [
+        "<para>",
+        "<p>",
+        "<paragraph>",
+        "<pg>"
+      ],
+      "isCorrect": "<p>"
+    },
+    {
+      "question": "Which attribute is used to provide additional information about an element?",
+      "answers": [
+        "info",
+        "data",
+        "title",
+        "alt"
+      ],
+      "isCorrect": "title"
+    },
+    {
+      "question": "Which tag is used to embed an image?",
+      "answers": [
+        "<img>",
+        "<image>",
+        "<picture>",
+        "<src>"
+      ],
+      "isCorrect": "<img>"
+    },
+    {
+      "question": "Which tag is used to define a header cell in a table?",
+      "answers": [
+        "<td>",
+        "<th>",
+        "<header>",
+        "<hc>"
+      ],
+      "isCorrect": "<th>"
+    },
+    {
+      "question": "Which tag is used to define a list item?",
+      "answers": [
+        "<ul>",
+        "<ol>",
+        "<li>",
+        "<list>"
+      ],
+      "isCorrect": "<li>"
+    },
+    {
+      "question": "Which tag is used to define a dropdown list?",
+      "answers": [
+        "<input>",
+        "<select>",
+        "<dropdown>",
+        "<list>"
+      ],
+      "isCorrect": "<select>"
+    },
+    {
+      "question": "Which tag is used to define a button?",
+      "answers": [
+        "<btn>",
+        "<button>",
+        "<input>",
+        "<submit>"
+      ],
+      "isCorrect": "<button>"
+    },
+    {
+      "question": "Which tag is used to define a form?",
+      "answers": [
+        "<form>",
+        "<input>",
+        "<submit>",
+        "<frm>"
+      ],
+      "isCorrect": "<form>"
+    },
+    {
+      "question": "Which attribute is used to specify the URL in a hyperlink?",
+      "answers": [
+        "src",
+        "href",
+        "link",
+        "url"
+      ],
+      "isCorrect": "href"
+    },
+    {
+      "question": "Which tag is used to define a division or section?",
+      "answers": [
+        "<div>",
+        "<section>",
+        "<span>",
+        "<part>"
+      ],
+      "isCorrect": "<div>"
+    },
+    {
+      "question": "Which tag is used to define a header for a document or section?",
+      "answers": [
+        "<head>",
+        "<header>",
+        "<h1>",
+        "<title>"
+      ],
+      "isCorrect": "<header>"
+    },
+    {
+      "question": "Which tag is used to define a footer for a document or section?",
+      "answers": [
+        "<foot>",
+        "<footer>",
+        "<bottom>",
+        "<end>"
+      ],
+      "isCorrect": "<footer>"
+    },
+    {
+      "question": "Which tag is used to define a navigation menu?",
+      "answers": [
+        "<nav>",
+        "<menu>",
+        "<navigation>",
+        "<navigate>"
+      ],
+      "isCorrect": "<nav>"
+    },
+    {
+      "question": "Which tag is used to define a comment in HTML?",
+      "answers": [
+        "<!-- -->",
+        "<comment>",
+        "<cmt>",
+        "<!comment>"
+      ],
+      "isCorrect": "<!-- -->"
+    },
+    {
+      "question": "Which tag is used to define a horizontal rule?",
+      "answers": [
+        "<hr>",
+        "<line>",
+        "<hl>",
+        "<rule>"
+      ],
+      "isCorrect": "<hr>"
+    },
+    {
+      "question": "Which tag is used to define a subscript text?",
+      "answers": [
+        "<sub>",
+        "<sup>",
+        "<small>",
+        "<low>"
+      ],
+      "isCorrect": "<sub>"
+    },
+    {
+      "question": "Which tag is used to define a superscript text?",
+      "answers": [
+        "<sub>",
+        "<sup>",
+        "<small>",
+        "<high>"
+      ],
+      "isCorrect": "<sup>"
+    },
+    {
+      "question": "Which tag is used to define a bold text?",
+      "answers": [
+        "<bold>",
+        "<b>",
+        "<strong>",
+        "<heavy>"
+      ],
+      "isCorrect": "<b>"
+    },
+    {
+      "question": "Which tag is used to define an italic text?",
+      "answers": [
+        "<i>",
+        "<em>",
+        "<italic>",
+        "<it>"
+      ],
+      "isCorrect": "<i>"
+    },
+    {
+      "question": "Which tag is used to define a highlighted text?",
+      "answers": [
+        "<highlight>",
+        "<mark>",
+        "<hl>",
+        "<light>"
+      ],
+      "isCorrect": "<mark>"
+    },
+    {
+      "question": "Which tag is used to define a deleted text?",
+      "answers": [
+        "<del>",
+        "<delete>",
+        "<strike>",
+        "<remove>"
+      ],
+      "isCorrect": "<del>"
+    },
+    {
+      "question": "Which tag is used to define an inserted text?",
+      "answers": [
+        "<ins>",
+        "<insert>",
+        "<add>",
+        "<new>"
+      ],
+      "isCorrect": "<ins>"
+    },
+    {
+      "question": "Which tag is used to define a quotation?",
+      "answers": [
+        "<quote>",
+        "<q>",
+        "<blockquote>",
+        "<qt>"
+      ],
+      "isCorrect": "<q>"
+    },
+    {
+      "question": "Which tag is used to define a block-level quotation?",
+      "answers": [
+        "<quote>",
+        "<q>",
+        "<blockquote>",
+        "<qt>"
+      ],
+      "isCorrect": "<blockquote>"
+    },
+    {
+      "question": "Which tag is used to define an abbreviation?",
+      "answers": [
+        "<abbr>",
+        "<abbreviation>",
+        "<short>",
+        "<abb>"
+      ],
+      "isCorrect": "<abbr>"
+    },
+    {
+      "question": "Which tag is used to define a definition term?",
+      "answers": [
+        "<dt>",
+        "<dd>",
+        "<dfn>",
+        "<term>"
+      ],
+      "isCorrect": "<dt>"
+    },
+    {
+      "question": "Which tag is used to define a definition description?",
+      "answers": [
+        "<dt>",
+        "<dd>",
+        "<dfn>",
+        "<desc>"
+      ],
+      "isCorrect": "<dd>"
+    },
+    {
+      "question": "Which tag is used to define a code snippet?",
+      "answers": [
+        "<code>",
+        "<pre>",
+        "<snippet>",
+        "<coding>"
+      ],
+      "isCorrect": "<code>"
+    },
+    {
+      "question": "Which tag is used to define a preformatted text?",
+      "answers": [
+        "<pre>",
+        "<code>",
+        "<format>",
+        "<text>"
+      ],
+      "isCorrect": "<pre>"
+    },
+    {
+      "question": "Which tag is used to define a line break opportunity?",
+      "answers": [
+        "<br>",
+        "<wbr>",
+        "<lb>",
+        "<break>"
+      ],
+      "isCorrect": "<wbr>"
+    },
+    {
+      "question": "Which tag is used to define a time/date?",
+      "answers": [
+        "<time>",
+        "<date>",
+        "<datetime>",
+        "<calendar>"
+      ],
+      "isCorrect": "<time>"
+    },
+    {
+      "question": "Which tag is used to define a progress bar?",
+      "answers": [
+        "<progress>",
+        "<meter>",
+        "<bar>",
+        "<loading>"
+      ],
+      "isCorrect": "<progress>"
+    },
+    {
+      "question": "Which tag is used to define a meter gauge?",
+      "answers": [
+        "<progress>",
+        "<meter>",
+        "<gauge>",
+        "<measure>"
+      ],
+      "isCorrect": "<meter>"
+    },
+    {
+      "question": "Which tag is used to define a dialog box?",
+      "answers": [
+        "<dialog>",
+        "<popup>",
+        "<modal>",
+        "<window>"
+      ],
+      "isCorrect": "<dialog>"
+    },
+    {
+      "question": "Which tag is used to define a details disclosure widget?",
+      "answers": [
+        "<details>",
+        "<summary>",
+        "<disclose>",
+        "<expand>"
+      ],
+      "isCorrect": "<details>"
+    },
+    {
+      "question": "Which tag is used to define a summary for a <details> element?",
+      "answers": [
+        "<details>",
+        "<summary>",
+        "<title>",
+        "<head>"
+      ],
+      "isCorrect": "<summary>"
+    },
+    {
+      "question": "Which tag is used to define a ruby annotation?",
+      "answers": [
+        "<ruby>",
+        "<rt>",
+        "<rp>",
+        "<annotation>"
+      ],
+      "isCorrect": "<ruby>"
+    },
+    {
+      "question": "Which tag is used to define a ruby text?",
+      "answers": [
+        "<ruby>",
+        "<rt>",
+        "<rp>",
+        "<text>"
+      ],
+      "isCorrect": "<rt>"
+    },
+    {
+      "question": "Which tag is used to define a ruby parentheses?",
+      "answers": [
+        "<ruby>",
+        "<rt>",
+        "<rp>",
+        "<paren>"
+      ],
+      "isCorrect": "<rp>"
+    },
+    {
+      "question": "Which tag is used to define a bidirectional override?",
+      "answers": [
+        "<bdo>",
+        "<bdi>",
+        "<dir>",
+        "<override>"
+      ],
+      "isCorrect": "<bdo>"
+    },
+    {
+      "question": "Which tag is used to define a bidirectional isolation?",
+      "answers": [
+        "<bdo>",
+        "<bdi>",
+        "<dir>",
+        "<isolate>"
+      ],
+      "isCorrect": "<bdi>"
+    },
+    {
+      "question": "Which tag is used to define a container for external content?",
+      "answers": [
+        "<embed>",
+        "<object>",
+        "<iframe>",
+        "<external>"
+      ],
+      "isCorrect": "<iframe>"
+    },
+    {
+      "question": "Which tag is used to define an embedded object?",
+      "answers": [
+        "<embed>",
+        "<object>",
+        "<iframe>",
+        "<insert>"
+      ],
+      "isCorrect": "<object>"
+    },
+    {
+      "question": "Which tag is used to define an embedded plugin?",
+      "answers": [
+        "<embed>",
+        "<object>",
+        "<plugin>",
+        "<insert>"
+      ],
+      "isCorrect": "<embed>"
+    },
+    {
+      "question": "Which tag is used to define a caption for a figure?",
+      "answers": [
+        "<caption>",
+        "<figcaption>",
+        "<title>",
+        "<desc>"
+      ],
+      "isCorrect": "<figcaption>"
+    },
+    {
+      "question": "Which tag is used to define a self-contained content?",
+      "answers": [
+        "<article>",
+        "<section>",
+        "<div>",
+        "<content>"
+      ],
+      "isCorrect": "<article>"
+    },
+    {
+      "question": "Which tag is used to define a sidebar content?",
+      "answers": [
+        "<aside>",
+        "<sidebar>",
+        "<nav>",
+        "<div>"
+      ],
+      "isCorrect": "<aside>"
+    },
+    {
+      "question": "Which tag is used to define a main content?",
+      "answers": [
+        "<main>",
+        "<content>",
+        "<body>",
+        "<section>"
+      ],
+      "isCorrect": "<main>"
+    },
+    {
+      "question": "Which tag is used to define a thematic break?",
+      "answers": [
+        "<hr>",
+        "<break>",
+        "<thematic>",
+        "<section>"
+      ],
+      "isCorrect": "<hr>"
+    }
+  ]
+}
