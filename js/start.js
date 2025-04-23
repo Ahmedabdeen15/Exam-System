@@ -37,4 +37,6 @@ startBtn.addEventListener("click", () => {
 
     localStorage.setItem("examTopic", selectedTopic);
     localStorage.setItem("questionCount", selectedCount);
+
+    window.location.replace("examPage.html");
 });
