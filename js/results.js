@@ -1,12 +1,3 @@
-var examResults = {
-    totalQuestions: 10,
-    correct: 5,
-    wrong: 5,
-    remainTime: '1:30',
-};
-
-localStorage.setItem('examResults', JSON.stringify(examResults));
-
 document.addEventListener('DOMContentLoaded', () => {
     function getResultsFromStorage() {
         const resultsJSON = localStorage.getItem('examResults');
