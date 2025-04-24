@@ -186,6 +186,7 @@ textarea:not([rows]) {
   border-radius: 50%;
   color: white;
   padding: 0.3rem 0 0.4rem 0;
+  transition: all 0.4s ease-out;
 }
 .circle-mark {
   background: radial-gradient(
@@ -319,7 +320,7 @@ textarea:not([rows]) {
 .qustion-area .choice input:checked + label::before {
   content: "✓";
   position: absolute;
-  left: 0.2rem;
+  left: 0.5rem;
   top: 50%;
   transform: translateY(-50%);
   font-weight: bold;
@@ -386,6 +387,13 @@ textarea:not([rows]) {
 
 .buttons .mark-button:hover {
   background-color: rgb(156, 86, 0);
+}
+.marked{
+  background-color: rgb(156, 86, 0) !important;
+
+}
+.marked:hover {
+  background-color: darkorange !important;
 }
 
 .disabled-button {
