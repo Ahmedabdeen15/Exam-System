@@ -1,5 +1,7 @@
+var timer,totalTime;
+
 function startTimer(duration, display) {
-  var timer = duration;
+  timer = duration;
   var minutes, seconds;
   var interval = setInterval(function () {
     minutes = parseInt(timer / 60, 10);
@@ -18,7 +20,16 @@ function startTimer(duration, display) {
   }, 1000);
 }
 function timerControl(time) {
+  totalTime = time;
   var display = document.getElementById("timer");
   startTimer(time, display);
+}
+function getRemainingTime(){
+  var escapedTime = totalTime - timer;
+  minutes = parseInt(escapedTime / 60, 10);
+  seconds = parseInt(escapedTime % 60, 10);
+
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
 }
 
