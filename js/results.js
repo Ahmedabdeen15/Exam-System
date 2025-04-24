@@ -10,13 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const scorePercentage = (results.correct / results.totalQuestions) * 100;
         const isPassing = scorePercentage >= 50.0;
 
-        const illustrationSection = document.querySelector(".re-illustration-section");
-        const illustrationImg = illustrationSection.querySelector("img");
-
-        if (illustrationImg) {
-            illustrationImg.src = isPassing ? "assets/images/passed.jpg" : "assets/images/failed.jpg";
-            illustrationImg.alt = isPassing ? "Congratulations!" : "Better luck!";
-        }
+        const illustrationImg = document.querySelector(".re-illustration-section img");
+        illustrationImg.src = isPassing ? "assets/images/passed.jpg" : "assets/images/failed.jpg";
+        illustrationImg.alt = isPassing ? "Congratulations" : "Better luck";
 
         const msgDiv = document.querySelector(".re-message-text");
         msgDiv.textContent = isPassing
@@ -24,17 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
             : "Better luck next time! You can try again and improve.";
 
         const scoreElement = document.querySelector(".re-score .re-score-fraction");
+        const progressBar = document.querySelector(".re-score .re-progress-bar");
+        const totalQuestionsElement = document.querySelector(".re-score .re-item:first-child .re-value");
         const correctElement = document.querySelector(".re-score .re-item.re-correct .re-value");
         const wrongElement = document.querySelector(".re-score .re-item.re-wrong .re-value");
-        const totalQuestionsElement = document.querySelector(".re-score .re-item:first-child .re-value");
-        const progressBar = document.querySelector(".re-score .re-progress-bar");
-        const remainTimeElement = document.querySelector(".re-score .re-time span");
+        const escapedTimeElement = document.querySelector(".re-score .re-time span");
 
         scoreElement.textContent = `${scorePercentage.toFixed(2)}%`;
-        correctElement.textContent = results.correct;
-        wrongElement.textContent = results.wrong;
         totalQuestionsElement.textContent = results.totalQuestions;
-        remainTimeElement.textContent = results.remainTime || "N/A";
+        correctElement.textContent = results.correct;
+        wrongElement.textContent = results.totalQuestions - results.correct;
+        escapedTimeElement.textContent = results.escapedTime;
 
         if (scorePercentage == 0) {
             progressBar.style.width = "100%";
@@ -44,9 +40,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         progressBar.classList.toggle("re-failed", !isPassing);
     }
+    else {
+        const msgDiv = document.querySelector(".re-message-text");
+        msgDiv.textContent = "No exam results found.";
+        msgDiv.style.color = "red";
+        msgDiv.style.fontWeight = "bold";
+    }
 
     const tryAgainButton = document.querySelector(".re-try-again");
     tryAgainButton.addEventListener("click", () => {
+        localStorage.removeItem("examTopic");
+        localStorage.removeItem("questionCount");
         localStorage.removeItem("examResults");
         window.location.replace("start.html");
     });
