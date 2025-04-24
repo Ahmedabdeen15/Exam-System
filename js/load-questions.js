@@ -1,6 +1,8 @@
 var questions;
 var enabledQuestion = 0;
 var questionIndex = 0;
+var examName;
+var questionCount;
 var loader = document.getElementById("formOverlay");
 var bookmarkList = document.getElementById("bookmarksQuestion");
 var questionHeader = document.getElementById("question");
@@ -8,27 +10,42 @@ var form = document.getElementById("quiz-form");
 var nextButton = document.getElementById("nextButton");
 var backButton = document.getElementById("backButton");
 var markButton = document.getElementById("markButton");
-
+var submitButton = document.getElementById("submitButton");
 
 window.onload = function () {
-  loadAllQuestions("html", 20);
+  getExamData();
+  loadAllQuestions(examName, questionCount);
 };
-
+function getExamData(){
+  if(localStorage.getItem('examTopic') != null && localStorage.getItem('questionCount')!= null)
+    {
+    examName = localStorage.getItem('examTopic');
+    console.log(examName);
+    questionCount = localStorage.getItem('questionCount');
+    localStorage.removeItem('examTopic');
+    localStorage.removeItem('questionCount');
+  }
+  else{
+    window.location.replace("/403.html");
+  }
+}
 function loadAllQuestions(exam, size) {
   var xhrQustion = new XMLHttpRequest();
-  xhrQustion.open("get", "assets/" + exam + ".json");
+  xhrQustion.open("get", "assets/json/" + exam + ".json");
   xhrQustion.send();
   xhrQustion.addEventListener("readystatechange", function () {
     if (xhrQustion.readyState === 4 && xhrQustion.status === 200) {
       questions = JSON.parse(xhrQustion.response);
       questions = getRandomSubarray(questions["questions"], size);
       questions = addState(questions);
-      console.log(questions);
       loadBookmark(questions);
       loadQuestion(questionIndex);
       var time = 60 * size;
       timerControl(time);
       loader.classList.add("hidden");
+    }
+    else if(xhrQustion.status === 404){
+      window.location.replace("/403.html");
     }
   });
 }
@@ -232,3 +249,30 @@ function checkedAnswered(){
     }
   }
 }
+
+function submitExam() {
+  var grade = 0;
+  for (let i = 0; i < questions.length; i++) {
+    if(questions[i].userAnswer === questions[i].isCorrect) {
+      grade++;
+    }
+  }
+  console.log(getRemainingTime());
+  var output = {
+    escapedTime: getRemainingTime(),
+    grade: grade,
+    totalQuestion: questions.length,
+  };
+  localStorage.setItem("examResult", JSON.stringify(output));
+  // localStorage.setItem("examTopic", examName);
+  window.location.replace("/result.html");
+}
+submitButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  checkedAnswered();
+  var confirmSubmit = confirm("Are you sure you want to submit the exam?");
+  if (confirmSubmit) {
+    submitExam();
+  }
+}
+  );

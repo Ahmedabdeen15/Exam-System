@@ -15,7 +15,9 @@ function startTimer(duration, display) {
     progressBarControl(progressBar);
     if (--timer < 0) {
       clearInterval(interval);
-      display.textContent = "Time's up!";
+      alert("Time's up!");
+      submitExam();
+      // display.textContent = "Time's up!";
     }
   }, 1000);
 }
@@ -31,5 +33,6 @@ function getRemainingTime(){
 
   minutes = minutes < 10 ? "0" + minutes : minutes;
   seconds = seconds < 10 ? "0" + seconds : seconds;
+  return minutes + ":" + seconds;
 }
 
