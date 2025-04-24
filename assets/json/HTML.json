@@ -1,0 +1,104 @@
+{
+  "questions": [
+    {
+      "question": "What does HTML stand for?",
+      "answers": ["HyperText", "Markup", "Language", "All"],
+      "isCorrect": "All"
+    },
+    {
+      "question": "Which tag creates a link?",
+      "answers": ["<a>", "<link>", "<url>", "<href>"],
+      "isCorrect": "<a>"
+    },
+    {
+      "question": "Which tag makes bold text?",
+      "answers": ["<strong>", "<b>", "<bold>", "Both A & B"],
+      "isCorrect": "Both A & B"
+    },
+    {
+      "question": "What tag starts a list?",
+      "answers": ["<ol>", "<ul>", "<li>", "A or B"],
+      "isCorrect": "A or B"
+    },
+    {
+      "question": "Which tag inserts a line break?",
+      "answers": ["<br>", "<lb>", "<break>", "<hr>"],
+      "isCorrect": "<br>"
+    },
+    {
+      "question": "Which tag adds a table row?",
+      "answers": ["<tr>", "<td>", "<th>", "<row>"],
+      "isCorrect": "<tr>"
+    },
+    {
+      "question": "What does <img> do?",
+      "answers": ["Add image", "Play media", "Add video", "Add icon"],
+      "isCorrect": "Add image"
+    },
+    {
+      "question": "Where is <title> placed?",
+      "answers": ["<head>", "<body>", "<footer>", "<main>"],
+      "isCorrect": "<head>"
+    },
+    {
+      "question": "Which tag for a dropdown?",
+      "answers": ["<select>", "<input>", "<form>", "<option>"],
+      "isCorrect": "<select>"
+    },
+    {
+      "question": "What is alt in <img>?",
+      "answers": ["Tooltip", "Link", "Text", "Fallback"],
+      "isCorrect": "Fallback"
+    },
+    {
+      "question": "Which tag adds a form?",
+      "answers": ["<form>", "<input>", "<div>", "<submit>"],
+      "isCorrect": "<form>"
+    },
+    {
+      "question": "Which tag adds a checkbox?",
+      "answers": ["<input>", "<box>", "<check>", "<option>"],
+      "isCorrect": "<input>"
+    },
+    {
+      "question": "What does <meta> do?",
+      "answers": ["SEO", "Style", "Script", "Layout"],
+      "isCorrect": "SEO"
+    },
+    {
+      "question": "Which is NOT a block tag?",
+      "answers": ["<div>", "<p>", "<span>", "<h1>"],
+      "isCorrect": "<span>"
+    },
+    {
+      "question": "What tag makes a heading?",
+      "answers": ["<h1>", "<head>", "<p>", "<title>"],
+      "isCorrect": "<h1>"
+    },
+    {
+      "question": "Which tag adds audio?",
+      "answers": ["<audio>", "<sound>", "<mp3>", "<media>"],
+      "isCorrect": "<audio>"
+    },
+    {
+      "question": "Which tag adds video?",
+      "answers": ["<video>", "<media>", "<mp4>", "<movie>"],
+      "isCorrect": "<video>"
+    },
+    {
+      "question": "Which tag adds a script?",
+      "answers": ["<script>", "<js>", "<code>", "<run>"],
+      "isCorrect": "<script>"
+    },
+    {
+      "question": "Which tag adds style?",
+      "answers": ["<style>", "<css>", "<link>", "A or C"],
+      "isCorrect": "A or C"
+    },
+    {
+      "question": "What is <hr> used for?",
+      "answers": ["Line", "Break", "Space", "Style"],
+      "isCorrect": "Line"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "questions": [
+    {
+      "question": "What does CSS stand for?",
+      "answers": ["Style Sheet", "Cascading Style", "CSS", "All"],
+      "isCorrect": "All"
+    },
+    {
+      "question": "How to select all <p> tags?",
+      "answers": ["p", "#p", ".p", "*p"],
+      "isCorrect": "p"
+    },
+    {
+      "question": "Which property changes text color?",
+      "answers": ["color", "text-color", "font-color", "style"],
+      "isCorrect": "color"
+    },
+    {
+      "question": "Which changes the font size?",
+      "answers": ["font-size", "text-size", "size", "font"],
+      "isCorrect": "font-size"
+    },
+    {
+      "question": "How to set background color?",
+      "answers": ["background", "bg-color", "bg", "background-color"],
+      "isCorrect": "background-color"
+    },
+    {
+      "question": "What does margin do?",
+      "answers": ["Outer space", "Text color", "Padding", "Border"],
+      "isCorrect": "Outer space"
+    },
+    {
+      "question": "Which sets padding?",
+      "answers": ["padding", "margin", "border", "space"],
+      "isCorrect": "padding"
+    },
+    {
+      "question": "Which sets a border?",
+      "answers": ["border", "outline", "frame", "stroke"],
+      "isCorrect": "border"
+    },
+    {
+      "question": "Which aligns text center?",
+      "answers": ["text-align", "align", "center", "text-center"],
+      "isCorrect": "text-align"
+    },
+    {
+      "question": "What unit is px?",
+      "answers": ["Pixel", "Percent", "Points", "Fixed"],
+      "isCorrect": "Pixel"
+    },
+    {
+      "question": "How to make text bold?",
+      "answers": ["font-weight", "text-bold", "bold", "weight"],
+      "isCorrect": "font-weight"
+    },
+    {
+      "question": "How to make a class?",
+      "answers": [".name", "#name", "name", "*name"],
+      "isCorrect": ".name"
+    },
+    {
+      "question": "How to make an ID?",
+      "answers": ["#name", ".name", "id", "name"],
+      "isCorrect": "#name"
+    },
+    {
+      "question": "What does z-index affect?",
+      "answers": ["Stack", "Color", "Size", "Font"],
+      "isCorrect": "Stack"
+    },
+    {
+      "question": "How to hide an element?",
+      "answers": ["display: none", "hide", "invisible", "show: false"],
+      "isCorrect": "display: none"
+    },
+    {
+      "question": "How to show flex items?",
+      "answers": ["display: flex", "flex: true", "flex: show", "show: flex"],
+      "isCorrect": "display: flex"
+    },
+    {
+      "question": "Which makes a hover effect?",
+      "answers": [":hover", "::hover", ":focus", "hover()"],
+      "isCorrect": ":hover"
+    },
+    {
+      "question": "What selector is *?",
+      "answers": ["All", "ID", "Class", "Div"],
+      "isCorrect": "All"
+    },
+    {
+      "question": "What sets rounded corners?",
+      "answers": ["border-radius", "corner", "round", "radius"],
+      "isCorrect": "border-radius"
+    },
+    {
+      "question": "Which makes a shadow?",
+      "answers": ["box-shadow", "shadow", "blur", "drop-shadow"],
+      "isCorrect": "box-shadow"
+    }
+  ]
+}
