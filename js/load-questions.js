@@ -11,7 +11,7 @@ var markButton = document.getElementById("markButton");
 
 
 window.onload = function () {
-  loadAllQuestions("html", 10);
+  loadAllQuestions("html", 20);
 };
 
 function loadAllQuestions(exam, size) {
@@ -58,6 +58,7 @@ function addState(arr) {
 }
 
 function loadBookmark(arr) {
+  bookmarkList.innerHTML ="";
   for (let i = 0; i < arr.length; i++) {
     var li = document.createElement("li");
     var link = document.createElement("a");
@@ -73,7 +74,22 @@ function loadBookmark(arr) {
 
     link.addEventListener("click", function (e) {
       e.preventDefault();
+      checkedAnswered();
+      loadBookmark(questions);
+      questionIndex = i;
       loadQuestion(i);
+      if(questionIndex < (questions.length -1)){
+        nextButton.classList.remove("disabled-button");
+      }
+      else{
+        nextButton.classList.add("disabled-button");
+      }
+      if(questionIndex > 0){
+        backButton.classList.remove("disabled-button");
+      }
+      else{
+        backButton.classList.add("disabled-button");
+      }
     });
     switch (questions[i]["state"]) {
       case 0:
@@ -126,12 +142,26 @@ function loadQuestion(questionNumber) {
       input.setAttribute("id", i);
       input.setAttribute("name", "answers");
       input.setAttribute("value", questions[questionNumber]["answers"][i]);
+
+      if (questions[questionNumber]["answers"][i] === questions[questionIndex].userAnswer) {
+        input.setAttribute("checked", "true");
+      }
+
       choice.appendChild(input);
       var label = document.createElement("label");
-      label.setAttribute("id", i);
+      label.setAttribute("for", i);
       label.textContent = questions[questionNumber]["answers"][i];
       choice.appendChild(label);
       form.appendChild(choice);
+
+      if (questions[questionIndex].state == 2) {
+        markButton.classList.add("marked");
+        markButton.firstChild.textContent = "UNMARK";
+      }
+      else{
+        markButton.classList.remove("marked");
+        markButton.firstChild.textContent = "MARK";
+      }
     }
   }
 }
@@ -143,10 +173,62 @@ nextButton.addEventListener("click",function(e){
     if (enabledQuestion <= questionIndex) {
       enabledQuestion++;
     }
-    questions[questionIndex].userAnswer = form.querySelector("input[name=\"answers\"]:checked")?.value;
-    console.log(questions[questionIndex].userAnswer);
+    checkedAnswered();
     questionIndex++;
     loadQuestion(questionIndex);
     loadBookmark(questions);
+    if(questionIndex === (questions.length-1)){
+      this.classList.add("disabled-button");
+    }
+    if(questionIndex > 0){
+      backButton.classList.remove("disabled-button");
+    }
   }
-})
+});
+
+backButton.addEventListener("click",function(e){
+  e.preventDefault();
+  if(questionIndex > 0)
+  {
+    checkedAnswered();
+    questionIndex--;
+    loadQuestion(questionIndex);
+    loadBookmark(questions);
+    if(questionIndex === 0){
+      this.classList.add("disabled-button");
+    }
+    if(questionIndex < (questions.length -1)){
+      nextButton.classList.remove("disabled-button");
+    }
+  }
+});
+
+markButton.addEventListener("click",function(e){
+  e.preventDefault();
+  if(questions[questionIndex].state != 2){
+    questions[questionIndex].state = 2;
+    loadBookmark(questions);
+    this.classList.add("marked");
+    this.firstChild.textContent = "UNMARK";
+  }
+  else{
+    questions[questionIndex].state = 0;
+    loadBookmark(questions);
+    checkedAnswered();
+    this.classList.remove("marked");
+    this.firstChild.textContent = "MARK";
+  }
+});
+
+
+function checkedAnswered(){
+  if(questions[questionIndex].state != 2){
+    if(form.querySelector("input[name=\"answers\"]:checked") === null){
+      questions[questionIndex].state = -1;
+    }
+    else{
+      questions[questionIndex].userAnswer = form.querySelector("input[name=\"answers\"]:checked")?.value;
+      questions[questionIndex].state = 1;
+    }
+  }
+}
