@@ -1,0 +1,104 @@
+{
+  "questions": [
+    {
+      "question": "What is JavaScript mainly used for?",
+      "answers": ["Styling", "Structure", "Logic", "Database"],
+      "isCorrect": "Logic"
+    },
+    {
+      "question": "How to declare a variable?",
+      "answers": ["var x;", "x = var;", "v x;", "int x;"],
+      "isCorrect": "var x;"
+    },
+    {
+      "question": "What is the keyword to define a function?",
+      "answers": ["func", "function", "define", "method"],
+      "isCorrect": "function"
+    },
+    {
+      "question": "How to write a comment?",
+      "answers": ["//", "/*", "#", "<!--"],
+      "isCorrect": "//"
+    },
+    {
+      "question": "What is typeof []?",
+      "answers": ["object", "array", "list", "undefined"],
+      "isCorrect": "object"
+    },
+    {
+      "question": "What is === used for?",
+      "answers": ["Assign", "Compare", "Concat", "Check type"],
+      "isCorrect": "Compare"
+    },
+    {
+      "question": "What does NaN mean?",
+      "answers": ["Not a Name", "No Answer", "Not a Number", "None"],
+      "isCorrect": "Not a Number"
+    },
+    {
+      "question": "Which is falsy?",
+      "answers": ["0", "null", "undefined", "All"],
+      "isCorrect": "All"
+    },
+    {
+      "question": "What is let used for?",
+      "answers": ["Loop", "Declare", "Style", "Scope"],
+      "isCorrect": "Declare"
+    },
+    {
+      "question": "What will 2 + '2' return?",
+      "answers": ["4", "22", "NaN", "Error"],
+      "isCorrect": "22"
+    },
+    {
+      "question": "What is a closure?",
+      "answers": ["Loop", "Inner func", "Block", "Callback"],
+      "isCorrect": "Inner func"
+    },
+    {
+      "question": "Which is NOT a loop?",
+      "answers": ["for", "loop", "while", "do"],
+      "isCorrect": "loop"
+    },
+    {
+      "question": "Which is a valid array?",
+      "answers": ["[1,2]", "(1,2)", "{1,2}", "<1,2>"],
+      "isCorrect": "[1,2]"
+    },
+    {
+      "question": "What is null == undefined?",
+      "answers": ["true", "false", "error", "NaN"],
+      "isCorrect": "true"
+    },
+    {
+      "question": "What is JSON?",
+      "answers": ["Object", "Format", "Syntax", "API"],
+      "isCorrect": "Format"
+    },
+    {
+      "question": "How to parse JSON?",
+      "answers": ["JSON.load", "JSON.parse", "parse()", "toJSON()"],
+      "isCorrect": "JSON.parse"
+    },
+    {
+      "question": "How to delay code?",
+      "answers": ["wait()", "delay()", "setTimeout()", "pause()"],
+      "isCorrect": "setTimeout()"
+    },
+    {
+      "question": "Which is a number?",
+      "answers": ["'2'", "2", "true", "None"],
+      "isCorrect": "2"
+    },
+    {
+      "question": "Which one is a boolean?",
+      "answers": ["0", "'true'", "true", "1"],
+      "isCorrect": "true"
+    },
+    {
+      "question": "What is this keyword?",
+      "answers": ["Global", "Current", "Parent", "None"],
+      "isCorrect": "Current"
+    }
+  ]
+}

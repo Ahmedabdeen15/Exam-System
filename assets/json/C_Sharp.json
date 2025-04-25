@@ -1,0 +1,104 @@
+{
+  "questions": [
+    {
+      "question": "What is C# used for?",
+      "answers": ["Web", "Game", "Desktop", "All"],
+      "isCorrect": "All"
+    },
+    {
+      "question": "How do you declare a variable?",
+      "answers": ["int num;", "num int;", "var int;", "int = num;"],
+      "isCorrect": "int num;"
+    },
+    {
+      "question": "Which type is a reference type?",
+      "answers": ["int", "bool", "string", "float"],
+      "isCorrect": "string"
+    },
+    {
+      "question": "What defines a class?",
+      "answers": ["class", "object", "define", "type"],
+      "isCorrect": "class"
+    },
+    {
+      "question": "What does 'static' mean?",
+      "answers": ["Local", "Shared", "Dynamic", "Private"],
+      "isCorrect": "Shared"
+    },
+    {
+      "question": "How to comment one line?",
+      "answers": ["//", "#", "/*", "<!--"],
+      "isCorrect": "//"
+    },
+    {
+      "question": "What is the base class?",
+      "answers": ["Main", "Object", "Parent", "Base"],
+      "isCorrect": "Object"
+    },
+    {
+      "question": "Which is an exception keyword?",
+      "answers": ["try", "catch", "finally", "All"],
+      "isCorrect": "All"
+    },
+    {
+      "question": "Best loop when count is unknown?",
+      "answers": ["for", "while", "foreach", "goto"],
+      "isCorrect": "while"
+    },
+    {
+      "question": "How to inherit in C#?",
+      "answers": ["inherits", ":", "extends", "super"],
+      "isCorrect": ":"
+    },
+    {
+      "question": "What is the private access for?",
+      "answers": ["All", "Class only", "Inherit", "Public"],
+      "isCorrect": "Class only"
+    },
+    {
+      "question": "How to create an object?",
+      "answers": ["new()", "create()", "obj = new();", "var new Obj();"],
+      "isCorrect": "obj = new();"
+    },
+    {
+      "question": "What does a constructor do?",
+      "answers": ["Destroys", "Returns", "Initializes", "Copies"],
+      "isCorrect": "Initializes"
+    },
+    {
+      "question": "Which is NOT a loop?",
+      "answers": ["for", "foreach", "loop", "while"],
+      "isCorrect": "loop"
+    },
+    {
+      "question": "What is boxing?",
+      "answers": ["Value → Ref", "Ref → Val", "Copy", "None"],
+      "isCorrect": "Value → Ref"
+    },
+    {
+      "question": "What is 'null'?",
+      "answers": ["Zero", "Empty", "No object", "Nothing"],
+      "isCorrect": "No object"
+    },
+    {
+      "question": "How to declare int array?",
+      "answers": ["int[] arr;", "arr[] int;", "array int;", "int arr;"],
+      "isCorrect": "int[] arr;"
+    },
+    {
+      "question": "What is a sealed class?",
+      "answers": ["No inherit", "No init", "Final", "Public"],
+      "isCorrect": "No inherit"
+    },
+    {
+      "question": "What can interface hold?",
+      "answers": ["Fields", "Methods", "Signatures", "All"],
+      "isCorrect": "Signatures"
+    },
+    {
+      "question": "What enables overloading?",
+      "answers": ["overload", "virtual", "override", "None"],
+      "isCorrect": "None"
+    }
+  ]
+}
