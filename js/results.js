@@ -49,8 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const tryAgainButton = document.querySelector(".re-try-again");
     tryAgainButton.addEventListener("click", () => {
-        localStorage.removeItem("examTopic");
-        localStorage.removeItem("questionCount");
         localStorage.removeItem("examResults");
         window.location.replace("start.html");
     });

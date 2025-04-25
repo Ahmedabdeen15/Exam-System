@@ -33,13 +33,20 @@ document.addEventListener('DOMContentLoaded', function() {
   // Start page check
   const isStartPage = currentPath.includes('start.html');
   
+  // Results page check
+  const isResultsPage = currentPath.includes('results.html');
+  
   // Login page check
   const isLoginPage = currentPath.includes('login.html');
   
   // Apply redirect rules based on current page and auth state
-  if (isStartPage) {
-    // Protect start page - redirect to login if not authenticated
-    if (!isLoggedIn) {
+  if (isStartPage || isResultsPage) {
+    if (!isRegistered) {
+      // If not registered, go to index
+      location.replace('index.html');
+    }
+    else if (!isLoggedIn) {
+      // Protect start page - redirect to login if not authenticated
       location.replace('login.html');
     }
   } else if (isLoginPage) {
