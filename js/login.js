@@ -265,7 +265,10 @@ submit.addEventListener("click", function (e) {
     EMAIL.value === savedEmail &&
     PASSWORD.value === savedPassword
   ) {
-    submit.form.submit();
+
+    localStorage.setItem("isLoggedIn", "true");
+
+    location.replace('start.html');
   }
 });
 
