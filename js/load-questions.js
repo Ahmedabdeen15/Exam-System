@@ -260,7 +260,7 @@ function submitExam() {
   console.log(getRemainingTime());
   var output = {
     escapedTime: getRemainingTime(),
-    grade: grade,
+    correct: grade,
     totalQuestion: questions.length,
   };
   localStorage.setItem("examResults", JSON.stringify(output));
