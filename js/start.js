@@ -32,7 +32,7 @@ questionButtons.forEach((btn) => {
 
 const startBtn = document.querySelector(".st-start-exam-btn");
 startBtn.addEventListener("click", () => {
-    const selectedTopic = document.querySelector(".st-exam-topic.st-active").innerText;
+    const selectedTopic = document.querySelector(".st-exam-topic.st-active").innerText === "C#" ? "C_Sharp" : document.querySelector(".st-exam-topic.st-active").innerText;
     const selectedCount = document.querySelector(".st-question-option.st-active").innerText;
 
     localStorage.setItem("examTopic", selectedTopic);
