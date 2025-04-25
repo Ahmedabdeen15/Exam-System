@@ -261,7 +261,7 @@ function submitExam() {
   var output = {
     escapedTime: getRemainingTime(),
     correct: grade,
-    totalQuestion: questions.length,
+    totalQuestions: questions.length,
   };
   localStorage.setItem("examResults", JSON.stringify(output));
   // localStorage.setItem("examTopic", examName);
