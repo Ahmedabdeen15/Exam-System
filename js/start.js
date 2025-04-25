@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const startBtn = document.querySelector(".st-start-exam-btn");
     startBtn.addEventListener("click", () => {
-        const selectedTopic = document.querySelector(".st-exam-topic.st-active").innerText;
+        let selectedTopic = document.querySelector(".st-exam-topic.st-active").innerText;
         const selectedCount = document.querySelector(".st-question-option.st-active").innerText;
 
         if (selectedTopic === "C#") {
