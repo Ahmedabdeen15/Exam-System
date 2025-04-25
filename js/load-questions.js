@@ -263,9 +263,9 @@ function submitExam() {
     grade: grade,
     totalQuestion: questions.length,
   };
-  localStorage.setItem("examResult", JSON.stringify(output));
+  localStorage.setItem("examResults", JSON.stringify(output));
   // localStorage.setItem("examTopic", examName);
-  window.location.replace("/result.html");
+  window.location.replace("/results.html");
 }
 submitButton.addEventListener("click", function (e) {
   e.preventDefault();
