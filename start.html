@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start Exam</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/start.css" />
+</head>
+
+<body>
+  <main class="st-container">
+    <header class="st-theme-toggle">
+      <button id="st-theme-btn">
+        <img src="assets/icons/icon-dark.svg" alt="mode icon" />
+      </button>
+    </header>
+
+    <section class="st-menu">
+      <div class="st-left-content">
+        <h1>Welcome to the <span>HTML Exam!</span></h1>
+        <p>Pick a topic and number of questions to get started.</p>
+      </div>
+
+      <nav class="st-topics">
+        <button class="st-exam-topic st-active">
+          <div class="st-button-icon-container">
+            <img src="assets/icons/icon-html.svg" alt="HTML icon" />
+          </div>
+          HTML
+        </button>
+        <button class="st-exam-topic">
+          <div class="st-button-icon-container">
+            <img src="assets/icons/icon-css.svg" alt="CSS icon" />
+          </div>
+          CSS
+        </button>
+        <button class="st-exam-topic">
+          <div class="st-button-icon-container">
+            <img src="assets/icons/icon-js.svg" alt="JavaScript icon" />
+          </div>
+          JavaScript
+        </button>
+        <button class="st-exam-topic">
+          <div class="st-button-icon-container">
+            <img src="assets/icons/icon-csh.svg" alt="C# icon" />
+          </div>
+          C#
+        </button>
+      </nav>
+    </section>
+
+    <section class="st-questions">
+      <h4>Number of Questions</h4>
+      <div class="st-question-options">
+        <button class="st-question-option st-active">5</button>
+        <button class="st-question-option">10</button>
+        <button class="st-question-option">15</button>
+        <button class="st-question-option">20</button>
+      </div>
+    </section>
+
+    <footer>
+      <button class="st-start-exam-btn">Start Exam</button>
+    </footer>
+  </main>
+
+  <script src="js/start.js"></script>
+</body>
+
+</html>

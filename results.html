@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/results.css" />
+</head>
+
+<body>
+    <main class="re-container">
+        <section class="re-illustration-section">
+            <div class="re-message-text"></div>
+            <img src="" alt="" class="re-result-image" />
+        </section>
+
+        <section class="re-score-section">
+            <header class="re-header">
+                <h1>Thank you for taking the exam.</h1>
+                <p>Here's how you did:</p>
+            </header>
+
+            <article class="re-score">
+                <h2>Your Final Score</h2>
+                <div class="re-score-details">
+                    <div class="re-progress-circle">
+                        <div class="re-progress-bar"></div>
+                        <span class="re-score-fraction"></span>
+                    </div>
+                    <div class="re-details">
+                        <div class="re-item">
+                            <span class="re-value"></span>
+                            <span class="re-label">QUESTIONS</span>
+                        </div>
+                        <div class="re-item re-correct">
+                            <span class="re-value"></span>
+                            <span class="re-label">CORRECT</span>
+                        </div>
+                        <div class="re-item re-wrong">
+                            <span class="re-value"></span>
+                            <span class="re-label">WRONG</span>
+                        </div>
+                        <div class="re-time">
+                            <i class="fa-solid fa-clock"></i>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <footer>
+                <button class="re-try-again">
+                    Try Again!
+                    <i class="fa-solid fa-rotate-left"></i>
+                </button>
+            </footer>
+        </section>
+    </main>
+
+    <script src="js/results.js"></script>
+</body>
+
+</html>
