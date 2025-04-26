@@ -244,8 +244,13 @@ function checkedAnswered(){
       questions[questionIndex].state = -1;
     }
     else{
-      questions[questionIndex].userAnswer = form.querySelector("input[name=\"answers\"]:checked")?.value;
       questions[questionIndex].state = 1;
+      questions[questionIndex].userAnswer = form.querySelector("input[name=\"answers\"]:checked")?.value;
+    }
+  }
+  else{
+    if(form.querySelector("input[name=\"answers\"]:checked") !== null){
+      questions[questionIndex].userAnswer = form.querySelector("input[name=\"answers\"]:checked")?.value;
     }
   }
 }
