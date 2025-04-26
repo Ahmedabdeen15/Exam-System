@@ -50,6 +50,25 @@ body.st-dark-mode {
     color: var(--clr-text-light);
 }
 
+#formOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    background-color: rgba(90, 90, 90, 0.185);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.hidden {
+    display: none !important;
+}
+
 .st-container {
     display: flex;
     flex-direction: column;

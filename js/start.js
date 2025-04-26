@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (isLoggedIn) {
+        const loader = document.getElementById("formOverlay");
+        loader.classList.add("hidden");
+    }
+
     document.body.classList.add("st-light-mode");
 
     const themeBtn = document.getElementById("st-theme-btn");

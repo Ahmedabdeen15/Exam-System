@@ -102,6 +102,9 @@ function validateEmail() {
   } else if (!emailRe.test(EMAIL.value)) {
     Espan.textContent = "Please enter a correct email format";
     return false;
+  }else if (EMAIL.value !== savedEmail) {
+    Espan.textContent = "Email not registered";
+    return false;
   } else {
     Espan.textContent = "";
     return true;
@@ -147,6 +150,11 @@ function validatePassword() {
   // Regex check for complexity requirements
   if (!PASSWORD_CONFIG.regex.test(password)) {
     Pspan.textContent = `Password must be at least ${PASSWORD_CONFIG.minLength} characters with uppercase, lowercase, number, and special character`;
+    return false;
+  }
+
+  if (PASSWORD.value !== savedPassword) {
+    Pspan.textContent = "Incorrect password";
     return false;
   }
 

@@ -6,6 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const results = getResultsFromStorage();
 
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (isLoggedIn) {
+        const loader = document.getElementById("formOverlay");
+        loader.classList.add("hidden");
+    }
+
     if (results) {
         const scorePercentage = (results.correct / results.totalQuestions) * 100;
         const isPassing = scorePercentage >= 50.0;
