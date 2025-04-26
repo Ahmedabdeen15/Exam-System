@@ -421,7 +421,7 @@ R_PASSWORD.addEventListener("input", validatePasswordMatching);
 // });
 
 // Form submission handler
-submit.addEventListener("click", function (e) {
+submit.addEventListener("click", async function (e) {
   e.preventDefault();
 
   // Validate all fields
@@ -441,7 +441,7 @@ submit.addEventListener("click", function (e) {
   ) {
     // Save email and password to localStorage
     localStorage.setItem("userEmail", EMAIL.value);
-    localStorage.setItem("userPassword", PASSWORD.value);
+    localStorage.setItem("userPassword",await hashPassword(PASSWORD.value));
     localStorage.setItem("isRegistered", "true");
 
     // Redirect to login page after successful registration

@@ -75,6 +75,7 @@ var EMAIL = document.getElementById("email");
 var Espan = document.getElementById("ESpan");
 
 var PASSWORD = document.getElementById("password");
+var passwordHash;
 var Pspan = document.getElementById("PSpan");
 
 var submit = document.getElementById("LoginS");
@@ -131,9 +132,10 @@ const PASSWORD_CONFIG = {
 };
 
 // Main password validation function
-function validatePassword() {
+async function validatePassword() {
   const password = PASSWORD.value;
-
+  passwordHash = await hashPassword(PASSWORD.value);
+  
   // Empty check
   if (password === "") {
     Pspan.textContent = "*This field is required";
@@ -153,7 +155,7 @@ function validatePassword() {
     return false;
   }
 
-  if (PASSWORD.value !== savedPassword) {
+  if (passwordHash !== savedPassword) {
     Pspan.textContent = "Incorrect password";
     return false;
   }
@@ -261,7 +263,6 @@ const savedPassword = localStorage.getItem("userPassword");
 // Form submission handler
 submit.addEventListener("click", function (e) {
   e.preventDefault();
-
   // Validate all fields
   const isEmailValid = validateEmail();
   const isPasswordValid = validatePassword();
@@ -271,7 +272,7 @@ submit.addEventListener("click", function (e) {
     isEmailValid &&
     isPasswordValid &&
     EMAIL.value === savedEmail &&
-    PASSWORD.value === savedPassword
+    passwordHash === savedPassword
   ) {
 
     localStorage.setItem("isLoggedIn", "true");
