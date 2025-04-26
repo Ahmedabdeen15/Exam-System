@@ -13,14 +13,34 @@ var markButton = document.getElementById("markButton");
 var submitButton = document.getElementById("submitButton");
 
 window.onload = function () {
-  getExamData();
-  loadAllQuestions(examName, questionCount);
+  console.log(localStorage.getItem('isRegistered'));
+  if(localStorage.getItem('isRegistered') === null || localStorage.getItem('isRegistered') === "false"){
+    this.location.replace("/index.html");
+
+  }else if(localStorage.getItem('isLoggedIn') === null || localStorage.getItem('isLoggedIn') === "false"){
+    this.location.replace("/login.html");
+  }else{
+    getExamData();
+    loadAllQuestions(examName, questionCount);
+  }
 };
+
+// function checkLogin(){
+//   if(localStorage.getItem('isLoggedIn') === null || localStorage.getItem('isLoggedIn') === "false"){
+//     // window.location.replace("/login.html");
+//   }
+// }
+
+// function checkRegistered(){
+//   if(localStorage.getItem('isRegistered') === null || localStorage.getItem('isRegistered') === "false"){
+//     // window.location.replace("/index.html");
+//   }
+// }
+
 function getExamData(){
   if(localStorage.getItem('examTopic') != null && localStorage.getItem('questionCount')!= null)
     {
     examName = localStorage.getItem('examTopic');
-    console.log(examName);
     questionCount = localStorage.getItem('questionCount');
     localStorage.removeItem('examTopic');
     localStorage.removeItem('questionCount');
