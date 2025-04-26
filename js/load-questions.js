@@ -15,27 +15,17 @@ var submitButton = document.getElementById("submitButton");
 window.onload = function () {
   console.log(localStorage.getItem('isRegistered'));
   if(localStorage.getItem('isRegistered') === null || localStorage.getItem('isRegistered') === "false"){
-    this.location.replace("/index.html");
+    this.location.replace("Exam-System/index.html");
 
   }else if(localStorage.getItem('isLoggedIn') === null || localStorage.getItem('isLoggedIn') === "false"){
-    this.location.replace("/login.html");
+    this.location.replace("Exam-System/login.html");
   }else{
     getExamData();
     loadAllQuestions(examName, questionCount);
   }
 };
 
-// function checkLogin(){
-//   if(localStorage.getItem('isLoggedIn') === null || localStorage.getItem('isLoggedIn') === "false"){
-//     // window.location.replace("/login.html");
-//   }
-// }
 
-// function checkRegistered(){
-//   if(localStorage.getItem('isRegistered') === null || localStorage.getItem('isRegistered') === "false"){
-//     // window.location.replace("/index.html");
-//   }
-// }
 
 function getExamData(){
   if(localStorage.getItem('examTopic') != null && localStorage.getItem('questionCount')!= null)
@@ -46,7 +36,7 @@ function getExamData(){
     localStorage.removeItem('questionCount');
   }
   else{
-    window.location.replace("/403.html");
+    window.location.replace("Exam-System/403.html");
   }
 }
 function loadAllQuestions(exam, size) {
@@ -65,7 +55,7 @@ function loadAllQuestions(exam, size) {
       loader.classList.add("hidden");
     }
     else if(xhrQustion.status === 404){
-      window.location.replace("/403.html");
+      window.location.replace("Exam-System/403.html");
     }
   });
 }
@@ -290,7 +280,7 @@ function submitExam() {
   };
   localStorage.setItem("examResults", JSON.stringify(output));
   // localStorage.setItem("examTopic", examName);
-  window.location.replace("/results.html");
+  window.location.replace("Exam-System/results.html");
 }
 submitButton.addEventListener("click", function (e) {
   e.preventDefault();
