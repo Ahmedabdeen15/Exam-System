@@ -485,9 +485,18 @@ textarea:not([rows]) {
   .opened {
     width: 10% !important;
   }
+  .custom-progress{
+    margin-right: .5rem;
+  }
+  #timer{
+    margin-left: 0.5rem;
+  }
   .quiz-area {
     margin-left: 1rem;
     flex-grow: initial;
+  }
+  .buttons a, .submit button[type="submit"]{
+    padding: 1rem 1.5rem;
   }
 }
 @media only screen and (max-width: 375.98px) {
@@ -497,7 +506,10 @@ textarea:not([rows]) {
 }
 @media only screen and (max-width: 320.98px) {
   * {
-    font-size: 6px;
+    font-size: 8px;
+  }
+  .buttons a, .submit button[type="submit"]{
+    padding: 1rem 2rem;
   }
 }
 .collapsed {
