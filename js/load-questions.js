@@ -26,7 +26,42 @@ window.onload = function () {
 };
 
 
+// start - Abdelrahman edit 1:
+function updateNavigationButtons() {
+  // First question handling (Back button)
+  if (questionIndex === 0) {
+    //backButton.classList.add("button-fade-out");
+    backButton.style.visibility = "hidden";
+    backButton.classList.add("disabled-button");
+    // setTimeout(() => {
+      
+    // }, 120);
+  } else {
+    backButton.style.visibility = "visible";
+    //backButton.classList.remove("button-fade-out");
+    backButton.classList.remove("disabled-button");
+  }
 
+  // Last question handling (Next button transforms to Submit)
+  if (questionIndex === questions.length - 1) {
+    // Transform next button into submit-like button
+    nextButton.classList.add("button-transform");
+    nextButton.innerHTML = '<span><i class="fa-solid fa-check"></i> FINISH</span>';
+    nextButton.removeEventListener("click", handleNext);
+    submitButton.style.display ="none";
+    nextButton.addEventListener("click", function(e) {
+      e.preventDefault();
+      submitButton.click(); // Trigger submit button click
+    });
+  } else {
+    // Restore next button
+    nextButton.classList.remove("button-transform");
+    nextButton.innerHTML = '<span>NEXT</span>';
+    nextButton.removeEventListener("click", handleSubmitProxy);
+    nextButton.addEventListener("click", handleNext);
+  }
+}
+// End edit 1
 function getExamData(){
   if(localStorage.getItem('examTopic') != null && localStorage.getItem('questionCount')!= null)
     {
@@ -191,12 +226,13 @@ function loadQuestion(questionNumber) {
       }
     }
   }
+  updateNavigationButtons(); // Abdelrahman
 }
-
-nextButton.addEventListener("click",function(e){
+// start Abdelrahman edit 2
+// Extract event handlers into named functions for easier adding/removing
+function handleNext(e) {
   e.preventDefault();
-  if(questionIndex < (questions.length-1))
-  {
+  if(questionIndex < (questions.length-1)) {
     if (enabledQuestion <= questionIndex) {
       enabledQuestion++;
     }
@@ -204,31 +240,96 @@ nextButton.addEventListener("click",function(e){
     questionIndex++;
     loadQuestion(questionIndex);
     loadBookmark(questions);
-    if(questionIndex === (questions.length-1)){
-      this.classList.add("disabled-button");
-    }
-    if(questionIndex > 0){
-      backButton.classList.remove("disabled-button");
-    }
+    updateNavigationButtons(); // Call after updating questionIndex
   }
-});
+}
 
-backButton.addEventListener("click",function(e){
+function handleSubmitProxy(e) {
   e.preventDefault();
-  if(questionIndex > 0)
-  {
+  submitButton.click();
+}
+
+// Update the existing event listeners
+nextButton.addEventListener("click", handleNext);
+// end edit 2
+
+
+// nextButton.addEventListener("click",function(e){
+//   e.preventDefault();
+//   if(questionIndex < (questions.length-1))
+//   {
+//     if (enabledQuestion <= questionIndex) {
+//       enabledQuestion++;
+//     }
+//     checkedAnswered();
+//     questionIndex++;
+//     loadQuestion(questionIndex);
+//     loadBookmark(questions);
+//     if(questionIndex === (questions.length-1)){
+//       this.classList.add("disabled-button");
+//     }
+//     if(questionIndex > 0){
+//       backButton.classList.remove("disabled-button");
+//     }
+//   }
+// });
+
+
+// Start Abdelrahman edit 3
+
+backButton.addEventListener("click", function(e) {
+  e.preventDefault();
+  if(questionIndex > 0) {
     checkedAnswered();
     questionIndex--;
     loadQuestion(questionIndex);
     loadBookmark(questions);
-    if(questionIndex === 0){
-      this.classList.add("disabled-button");
-    }
-    if(questionIndex < (questions.length -1)){
-      nextButton.classList.remove("disabled-button");
-    }
+    updateNavigationButtons(); // Call after updating questionIndex
   }
 });
+
+// Add this to your CSS file
+const style = document.createElement('style');
+style.textContent = `
+.button-fade-out {
+  opacity: 0.3;
+  transform: scale(0.95);
+  transition: all 0.3s ease;
+}
+
+.button-transform {
+  background-color: #4CAF50 !important;
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.4);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.button-transform:hover {
+  background-color: #45a049 !important;
+  transform: scale(1.08);
+}
+`;
+document.head.appendChild(style);
+
+// End edit 3
+
+
+// backButton.addEventListener("click",function(e){
+//   e.preventDefault();
+//   if(questionIndex > 0)
+//   {
+//     checkedAnswered();
+//     questionIndex--;
+//     loadQuestion(questionIndex);
+//     loadBookmark(questions);
+//     if(questionIndex === 0){
+//       this.classList.add("disabled-button");
+//     }
+//     if(questionIndex < (questions.length -1)){
+//       nextButton.classList.remove("disabled-button");
+//     }
+//   }
+// });
 
 markButton.addEventListener("click",function(e){
   e.preventDefault();

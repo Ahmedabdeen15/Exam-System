@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Add this to the top of your auth-regist.js file
+console.log('localStorage contents:', JSON.stringify(localStorage));
+console.log('sessionStorage contents:', JSON.stringify(sessionStorage));
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     const isRegistered = localStorage.getItem('isRegistered') === 'true';
     const currentPath = window.location.pathname;

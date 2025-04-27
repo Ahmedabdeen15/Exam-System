@@ -11,8 +11,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
+    <!-- MAIN -->
   <script>
     window.addEventListener("DOMContentLoaded", function () {
+      // // Always clear storage without conditional check
+      // localStorage.clear();
+      // sessionStorage.clear();
+      // console.log('Storage cleared on page load');
       // Check if the storage has already been cleared in this session
       if (!sessionStorage.getItem('storageCleared')) {
         // Clear storage
@@ -30,6 +35,43 @@
       }
     });
   </script>
+  <!-- ALT -->
+  <!-- <script>
+    // Run immediately - before DOMContentLoaded
+    (function() {
+      // Clear all storage first thing
+      localStorage.clear();
+      sessionStorage.clear();
+      console.log('Storage cleared immediately');
+      
+      // Prevent automatic redirects by overriding window.location methods
+      const originalReplace = window.location.replace;
+      window.location.replace = function(url) {
+        if (url.includes('login.html')) {
+          console.log('Prevented automatic redirect to:', url);
+          return;
+        }
+        originalReplace.apply(this, arguments);
+      };
+      
+      // Also block regular redirects
+      const originalAssign = window.location.assign;
+      window.location.assign = function(url) {
+        if (url.includes('login.html')) {
+          console.log('Prevented automatic redirect to:', url);
+          return;
+        }
+        originalAssign.apply(this, arguments);
+      };
+    })();
+    
+    // Also clear on DOMContentLoaded for extra safety
+    window.addEventListener("DOMContentLoaded", function() {
+      localStorage.clear();
+      sessionStorage.clear();
+      console.log('Storage cleared again on DOMContentLoaded');
+    });
+  </script> -->
   <!-- <script>
     window.addEventListener("DOMContentLoaded", function () {
       // Show loader initially

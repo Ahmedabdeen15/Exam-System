@@ -159,7 +159,52 @@ L_NAME.addEventListener("input", validateLastName);
 //     "$"
 // );
 
-var emailRe = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+var emailRe = new RegExp(
+  "^(?!.*\\.\\.)" +
+    "[A-Za-z0-9](?:[A-Za-z0-9._%+-]{0,62}[A-Za-z0-9])?" +
+    "@" +
+    "(?:" +
+    // Major providers
+    "gmail\\.com" +
+    "|yahoo\\.(?:com|co\\.uk)" +
+    "|outlook\\.com" +
+    "|hotmail\\.com" +
+    "|live\\.com" +
+    "|icloud\\.com" +
+    
+    // More popular email services
+    "|aol\\.com" +
+    "|protonmail\\.com" +
+    "|mail\\.com" +
+    "|zoho\\.com" +
+    "|me\\.com" +
+    "|msn\\.com" +
+    "|gmx\\.(com|net)" +
+    "|yandex\\.(com|ru)" +
+    "|mail\\.ru" +
+    "|comcast\\.net" +
+    "|fastmail\\.com" +
+    "|tutanota\\.com" +
+    "|qq\\.com" +
+    
+    // ISP domains
+    "|verizon\\.net" +
+    "|att\\.net" +
+    "|sbcglobal\\.net" +
+    
+    // Educational & organizational domains
+    "|edu$" +
+    "|gov$" +
+    "|mil$" +
+    "|org$" +
+    "|net$" +
+    "|info$" +
+    "|com$" +
+    ")" +
+    "$"
+);
+
+//var emailRe = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 // Add manual exception for known disposable domain(s)
 function isManuallyBlockedDomain(email) {
   const blockedDomains = ["cxnlab.com"];
@@ -240,11 +285,16 @@ EMAIL.addEventListener("input", () => {
   validateEmail();
 });
 
+// const PASSWORD_CONFIG = {
+//   minLength: 12,
+//   regex:
+//     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/,
+
 // Password validation configuration
 const PASSWORD_CONFIG = {
   minLength: 12,
   regex:
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/,
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\W_]{12,}$/,
   commonPatterns: [
     "123456",
     "password",
@@ -448,7 +498,7 @@ submit.addEventListener("click", async function (e) {
     location.replace("login.html");
   }
 });
-
+/*
 // Hide main element and alert after 30s of user inactivity
 let inactivityTimer;
 
@@ -459,6 +509,37 @@ function resetInactivityTimer() {
     mainElement.style.display = "none";
     alert("You have exceeded the time limit");
   }, 60000); // 60000 milliseconds = 60 seconds
+}
+
+// Reset timer on user activity
+["mousemove", "keydown", "mousedown", "touchstart"].forEach((event) => {
+  document.addEventListener(event, resetInactivityTimer);
+});
+
+
+// Start timer initially
+resetInactivityTimer();
+*/
+
+// Hide main element and alert after 30s of user inactivity
+let inactivityTimer;
+
+function resetInactivityTimer() {
+  clearTimeout(inactivityTimer);
+  inactivityTimer = setTimeout(function () {
+    // Clear input fields
+    document.getElementById("FName").value = "";
+    document.getElementById("LName").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("repeatPassword").value = "";
+    
+    // Alert the user
+    alert("You have exceeded the time limit");
+    
+    // Refresh the page
+    location.reload();
+  }, 30000);
 }
 
 // Reset timer on user activity

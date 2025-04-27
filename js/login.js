@@ -114,12 +114,15 @@ function validateEmail() {
 
 EMAIL.addEventListener("input", validateEmail);
 
+// const PASSWORD_CONFIG = {
+//   minLength: 12,
+//   regex:
+//     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/,
 // Password validation configuration
 const PASSWORD_CONFIG = {
   minLength: 12,
   regex:
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/,
-  commonPatterns: [
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\W_]{12,}$/,  commonPatterns: [
     "123456",
     "password",
     "qwerty",
@@ -281,6 +284,7 @@ submit.addEventListener("click", function (e) {
   }
 });
 
+/*
 // Hide main element and alert after 30s of user inactivity
 let inactivityTimer;
 
@@ -290,6 +294,42 @@ function resetInactivityTimer() {
     var mainElement = document.querySelector("main");
     mainElement.style.display = "none";
     alert("You have exceeded the time limit");
+  }, 30000);
+}
+
+// Reset timer on user activity
+["mousemove", "keydown", "mousedown", "touchstart"].forEach((event) => {
+  document.addEventListener(event, resetInactivityTimer);
+});
+
+// Start timer initially
+resetInactivityTimer();
+
+// Add dynamic background
+document.body.style.background = `linear-gradient(
+  ${Math.random() * 360}deg,
+  hsl(${Math.random() * 360}, 70%, 30%),
+  hsl(${Math.random() * 360}, 70%, 30%)
+)`;
+*/
+
+// Hide main element and alert after 30s of user inactivity
+let inactivityTimer;
+
+function resetInactivityTimer() {
+  clearTimeout(inactivityTimer);
+  inactivityTimer = setTimeout(function () {
+    // Clear input fields
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+
+    // Refresh the page
+    location.reload();
+
+    // Alert the user
+    alert("You have exceeded the time limit");
+    
+
   }, 30000);
 }
 
