@@ -471,7 +471,6 @@ a:focus,
 
 /* Responsive tweaks */
 @media (max-width: 768px) {
-  .right-side,
   .left-side {
     width: 100%;
     border-radius: 0;
@@ -484,6 +483,15 @@ a:focus,
   .my-form {
     width: max-content;
     margin-bottom: 2%;
+    overflow-y: scroll;
+    height: 100vh;
+    padding-bottom: 20px;
+    position: relative;
+  }
+
+  .right-side
+  {
+    display: none !important;
   }
 
 

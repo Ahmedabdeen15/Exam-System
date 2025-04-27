@@ -121,8 +121,10 @@ EMAIL.addEventListener("input", validateEmail);
 // Password validation configuration
 const PASSWORD_CONFIG = {
   minLength: 12,
+  maxLength: 18,
   regex:
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\W_]{12,}$/,  commonPatterns: [
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\W_]{12,18}$/,
+  commonPatterns: [
     "123456",
     "password",
     "qwerty",
@@ -135,13 +137,18 @@ const PASSWORD_CONFIG = {
 };
 
 // Main password validation function
-async function validatePassword() {
+function validatePassword() {
   const password = PASSWORD.value;
-  passwordHash = await hashPassword(PASSWORD.value);
-  
+
   // Empty check
   if (password === "") {
     Pspan.textContent = "*This field is required";
+    return false;
+  }
+
+  // Length check
+  if (password.length > PASSWORD_CONFIG.maxLength) {
+    Pspan.textContent = `Password must be at most ${PASSWORD_CONFIG.maxLength} characters`;
     return false;
   }
 
@@ -155,11 +162,6 @@ async function validatePassword() {
   // Regex check for complexity requirements
   if (!PASSWORD_CONFIG.regex.test(password)) {
     Pspan.textContent = `Password must be at least ${PASSWORD_CONFIG.minLength} characters with uppercase, lowercase, number, and special character`;
-    return false;
-  }
-
-  if (passwordHash !== savedPassword) {
-    Pspan.textContent = "Incorrect password";
     return false;
   }
 
@@ -207,29 +209,35 @@ function checkPasswordStrength() {
   let strengthLabel = "";
   let color = "";
 
-  switch (strength) {
-    case 0:
-    case 1:
-      strengthLabel = "Very Weak";
-      color = "#ff4d4d";
-      break;
-    case 2:
-    case 3:
-      strengthLabel = "Weak";
-      color = "#ffa64d";
-      break;
-    case 4:
-      strengthLabel = "Medium";
-      color = "#ffff4d";
-      break;
-    case 5:
-      strengthLabel = "Strong";
-      color = "#4dff4d";
-      break;
-    case 6:
-      strengthLabel = "Very Strong";
-      color = "#4d4dff";
-      break;
+  // Check for password max length
+  if (password.length > PASSWORD_CONFIG.maxLength) {
+    strengthLabel = "Too Long";
+    color = "#ff4d4d"; // Red
+  } else {
+    switch (strength) {
+      case 0:
+      case 1:
+        strengthLabel = "Very Weak";
+        color = "#ff4d4d"; // Red
+        break;
+      case 2:
+      case 3:
+        strengthLabel = "Weak";
+        color = "#ffa64d"; // Orange
+        break;
+      case 4:
+        strengthLabel = "Medium";
+        color = "#ffcc80"; // Light orange
+        break;
+      case 5:
+        strengthLabel = "Strong";
+        color = "#4dff4d"; // Green
+        break;
+      case 6:
+        strengthLabel = "Very Strong";
+        color = "#00cc00"; // Darker green
+        break;
+    }
   }
 
   // Set visual properties
@@ -245,9 +253,8 @@ function checkPasswordStrength() {
   strengthMeter.appendChild(strengthText);
   PASSWORD.parentNode.appendChild(strengthMeter);
 
-  return strength >= 4; // Consider 4+ as acceptable strength
+  return strength >= 4 && password.length <= PASSWORD_CONFIG.maxLength; // Consider 4+ as acceptable strength and check max length
 }
-
 // Set up event listeners
 PASSWORD.addEventListener("input", function () {
   validatePassword();
