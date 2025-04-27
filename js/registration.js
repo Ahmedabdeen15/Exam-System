@@ -400,7 +400,7 @@ function checkPasswordStrength() {
         break;
       case 5:
         strengthLabel = "Strong";
-        color = "#4dff4d"; // Green
+        color = "#ffcc00"; // Yellow
         break;
       case 6:
         strengthLabel = "Very Strong";

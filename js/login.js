@@ -137,8 +137,9 @@ const PASSWORD_CONFIG = {
 };
 
 // Main password validation function
-function validatePassword() {
+async function validatePassword() {
   const password = PASSWORD.value;
+  passwordHash = await hashPassword(PASSWORD.value);
 
   // Empty check
   if (password === "") {
@@ -162,6 +163,11 @@ function validatePassword() {
   // Regex check for complexity requirements
   if (!PASSWORD_CONFIG.regex.test(password)) {
     Pspan.textContent = `Password must be at least ${PASSWORD_CONFIG.minLength} characters with uppercase, lowercase, number, and special character`;
+    return false;
+  }
+
+  if (passwordHash !== savedPassword) {
+    Pspan.textContent = "Incorrect password";
     return false;
   }
 
@@ -231,11 +237,11 @@ function checkPasswordStrength() {
         break;
       case 5:
         strengthLabel = "Strong";
-        color = "#4dff4d"; // Green
+        color = "#ffcc00"; // Yellow
         break;
       case 6:
         strengthLabel = "Very Strong";
-        color = "#00cc00"; // Darker green
+        color = "#00cc00"; // Green
         break;
     }
   }
