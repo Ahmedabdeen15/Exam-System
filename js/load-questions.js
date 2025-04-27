@@ -26,42 +26,7 @@ window.onload = function () {
 };
 
 
-// start - Abdelrahman edit 1:
-function updateNavigationButtons() {
-  // First question handling (Back button)
-  if (questionIndex === 0) {
-    //backButton.classList.add("button-fade-out");
-    backButton.style.visibility = "hidden";
-    backButton.classList.add("disabled-button");
-    // setTimeout(() => {
-      
-    // }, 120);
-  } else {
-    backButton.style.visibility = "visible";
-    //backButton.classList.remove("button-fade-out");
-    backButton.classList.remove("disabled-button");
-  }
 
-  // Last question handling (Next button transforms to Submit)
-  if (questionIndex === questions.length - 1) {
-    // Transform next button into submit-like button
-    nextButton.classList.add("button-transform");
-    nextButton.innerHTML = '<span><i class="fa-solid fa-check"></i> FINISH</span>';
-    nextButton.removeEventListener("click", handleNext);
-    submitButton.style.display ="none";
-    nextButton.addEventListener("click", function(e) {
-      e.preventDefault();
-      submitButton.click(); // Trigger submit button click
-    });
-  } else {
-    // Restore next button
-    nextButton.classList.remove("button-transform");
-    nextButton.innerHTML = '<span>NEXT</span>';
-    nextButton.removeEventListener("click", handleSubmitProxy);
-    nextButton.addEventListener("click", handleNext);
-  }
-}
-// End edit 1
 function getExamData(){
   if(localStorage.getItem('examTopic') != null && localStorage.getItem('questionCount')!= null)
     {
@@ -226,13 +191,12 @@ function loadQuestion(questionNumber) {
       }
     }
   }
-  updateNavigationButtons(); // Abdelrahman
 }
-// start Abdelrahman edit 2
-// Extract event handlers into named functions for easier adding/removing
-function handleNext(e) {
+
+nextButton.addEventListener("click",function(e){
   e.preventDefault();
-  if(questionIndex < (questions.length-1)) {
+  if(questionIndex < (questions.length-1))
+  {
     if (enabledQuestion <= questionIndex) {
       enabledQuestion++;
     }
@@ -240,96 +204,31 @@ function handleNext(e) {
     questionIndex++;
     loadQuestion(questionIndex);
     loadBookmark(questions);
-    updateNavigationButtons(); // Call after updating questionIndex
+    if(questionIndex === (questions.length-1)){
+      this.classList.add("disabled-button");
+    }
+    if(questionIndex > 0){
+      backButton.classList.remove("disabled-button");
+    }
   }
-}
+});
 
-function handleSubmitProxy(e) {
+backButton.addEventListener("click",function(e){
   e.preventDefault();
-  submitButton.click();
-}
-
-// Update the existing event listeners
-nextButton.addEventListener("click", handleNext);
-// end edit 2
-
-
-// nextButton.addEventListener("click",function(e){
-//   e.preventDefault();
-//   if(questionIndex < (questions.length-1))
-//   {
-//     if (enabledQuestion <= questionIndex) {
-//       enabledQuestion++;
-//     }
-//     checkedAnswered();
-//     questionIndex++;
-//     loadQuestion(questionIndex);
-//     loadBookmark(questions);
-//     if(questionIndex === (questions.length-1)){
-//       this.classList.add("disabled-button");
-//     }
-//     if(questionIndex > 0){
-//       backButton.classList.remove("disabled-button");
-//     }
-//   }
-// });
-
-
-// Start Abdelrahman edit 3
-
-backButton.addEventListener("click", function(e) {
-  e.preventDefault();
-  if(questionIndex > 0) {
+  if(questionIndex > 0)
+  {
     checkedAnswered();
     questionIndex--;
     loadQuestion(questionIndex);
     loadBookmark(questions);
-    updateNavigationButtons(); // Call after updating questionIndex
+    if(questionIndex === 0){
+      this.classList.add("disabled-button");
+    }
+    if(questionIndex < (questions.length -1)){
+      nextButton.classList.remove("disabled-button");
+    }
   }
 });
-
-// Add this to your CSS file
-const style = document.createElement('style');
-style.textContent = `
-.button-fade-out {
-  opacity: 0.3;
-  transform: scale(0.95);
-  transition: all 0.3s ease;
-}
-
-.button-transform {
-  background-color: #4CAF50 !important;
-  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.4);
-  transform: scale(1.05);
-  transition: all 0.3s ease;
-}
-
-.button-transform:hover {
-  background-color: #45a049 !important;
-  transform: scale(1.08);
-}
-`;
-document.head.appendChild(style);
-
-// End edit 3
-
-
-// backButton.addEventListener("click",function(e){
-//   e.preventDefault();
-//   if(questionIndex > 0)
-//   {
-//     checkedAnswered();
-//     questionIndex--;
-//     loadQuestion(questionIndex);
-//     loadBookmark(questions);
-//     if(questionIndex === 0){
-//       this.classList.add("disabled-button");
-//     }
-//     if(questionIndex < (questions.length -1)){
-//       nextButton.classList.remove("disabled-button");
-//     }
-//   }
-// });
 
 markButton.addEventListener("click",function(e){
   e.preventDefault();
@@ -383,40 +282,12 @@ function submitExam() {
   // localStorage.setItem("examTopic", examName);
   window.location.replace("results.html");
 }
-// submitButton.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   checkedAnswered();
-//   var confirmSubmit = confirm("Are you sure you want to submit the exam?");
-//   if (confirmSubmit) {
-//     submitExam();
-//   }
-// }
-//   );
-
 submitButton.addEventListener("click", function (e) {
   e.preventDefault();
-  checkedAnswered(); 
-  
-  // Count unanswered questions
-  var unansweredCount = 0;
-  var unansweredQuestions = [];
-  
-  for (let i = 0; i < questions.length; i++) {
-    if (!questions[i].hasOwnProperty('userAnswer') || questions[i].userAnswer === undefined) {
-      unansweredCount++;
-      unansweredQuestions.push(i + 1); // Store question number (1-based)
-    }
-  }
-  
-  var confirmMessage = "";
-  if (unansweredCount > 0) {
-    confirmMessage = `Are you sure you want to submit? ${unansweredCount} question${unansweredCount > 1 ? 's are' : ' is'} still unanswered (Questions: ${unansweredQuestions.join(', ')}).`;
-  } else {
-    confirmMessage = "Are you sure you want to submit the exam?";
-  }
-  
-  var confirmSubmit = confirm(confirmMessage);
+  checkedAnswered();
+  var confirmSubmit = confirm("Are you sure you want to submit the exam?");
   if (confirmSubmit) {
     submitExam();
   }
-});
+}
+  );
