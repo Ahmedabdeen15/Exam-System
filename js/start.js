@@ -58,4 +58,4 @@ function logout() {
     localStorage.removeItem('userEmail');
     localStorage.removeItem('userPassword');
     window.location.replace('index.html');
-  }
+}

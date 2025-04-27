@@ -12,64 +12,58 @@
 </head>
 
 <body>
-    <nav>
-        <div>
-            <button onclick="logout()" class="my-logout-btn">Logout</button>
-        </div>
-    </nav>
-    <main class="my-main-container">
-        <div id="formOverlay">
-            <span class="loader"></span>
-        </div>
-        
-        <main class="re-container">
-            <section class="re-illustration-section">
-                <div class="re-message-text"></div>
-                <img src="" alt="" class="re-result-image" />
-            </section>
+    <div id="formOverlay">
+        <span class="loader"></span>
+    </div>
     
-            <section class="re-score-section">
-                <header class="re-header">
-                    <h1>Thank you for taking the exam.</h1>
-                    <p>Here's how you did:</p>
-                </header>
+    <main class="re-container">
+        <section class="re-illustration-section">
+            <div class="re-message-text"></div>
+            <img src="" alt="" class="re-result-image" />
+        </section>
     
-                <article class="re-score">
-                    <h2>Your Final Score</h2>
-                    <div class="re-score-details">
-                        <div class="re-progress-circle">
-                            <div class="re-progress-bar"></div>
-                            <span class="re-score-fraction"></span>
+        <section class="re-score-section">
+            <header class="re-header">
+                <h1>Thank you for taking the exam.</h1>
+                <p>Here's how you did:</p>
+            </header>
+    
+            <article class="re-score">
+                <h2>Your Final Score</h2>
+                <div class="re-score-details">
+                    <div class="re-progress-circle">
+                        <div class="re-progress-bar"></div>
+                        <span class="re-score-fraction"></span>
+                    </div>
+                    <div class="re-details">
+                        <div class="re-item">
+                            <span class="re-value"></span>
+                            <span class="re-label">QUESTIONS</span>
                         </div>
-                        <div class="re-details">
-                            <div class="re-item">
-                                <span class="re-value"></span>
-                                <span class="re-label">QUESTIONS</span>
-                            </div>
-                            <div class="re-item re-correct">
-                                <span class="re-value"></span>
-                                <span class="re-label">CORRECT</span>
-                            </div>
-                            <div class="re-item re-wrong">
-                                <span class="re-value"></span>
-                                <span class="re-label">WRONG</span>
-                            </div>
-                            <div class="re-time">
-                                <i class="fa-solid fa-clock"></i>
-                                <span></span>
-                            </div>
+                        <div class="re-item re-correct">
+                            <span class="re-value"></span>
+                            <span class="re-label">CORRECT</span>
+                        </div>
+                        <div class="re-item re-wrong">
+                            <span class="re-value"></span>
+                            <span class="re-label">WRONG</span>
+                        </div>
+                        <div class="re-time">
+                            <i class="fa-solid fa-clock"></i>
+                            <span></span>
                         </div>
                     </div>
-                </article>
+                </div>
+            </article>
     
-                <footer>
-                    <button class="re-try-again">
-                        Try Again!
-                        <i class="fa-solid fa-rotate-left"></i>
-                    </button>
-                </footer>
-            </section>
-        </main>
+            <footer>
+                <button class="re-try-again">
+                    Try Again!
+                    <i class="fa-solid fa-rotate-left"></i>
+                </button>
+                <button onclick="logout()" class="re-logout-btn">Logout</button>
+            </footer>
+        </section>
     </main>
 
     <script src="js/auth-guard.js"></script>
