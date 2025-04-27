@@ -11,22 +11,99 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      // Check if the storage has already been cleared in this session
+      if (!sessionStorage.getItem('storageCleared')) {
+        // Clear storage
+        localStorage.clear();
+        sessionStorage.clear(); // Clear session storage itself first
+
+        // Set a flag in sessionStorage to indicate it has been cleared for this session
+        // Note: Since we just cleared sessionStorage, we need to set the flag *after* clearing.
+        sessionStorage.setItem('storageCleared', 'true');
+        console.log('Storage cleared for this session.');
+        // document.getElementById('page-content').style.display = 'block';
+        // document.getElementById('auth-loader').style.display = 'none';
+      } else {
+        console.log('Storage already cleared for this session.');
+      }
+    });
+  </script>
   <!-- <script>
-      document.addEventListener('DOMContentLoaded', function() {
-    // Initialize isRegistered to false if it doesn't exist yet
-    if (localStorage.getItem('isRegistered') === null) {
-      localStorage.setItem('isRegistered', false);
-    }
-  });
+    window.addEventListener("DOMContentLoaded", function () {
+      // Show loader initially
+      document.getElementById('auth-loader').classList.remove('hidden');
+
+      // Check if the storage has already been cleared in this session
+      if (!sessionStorage.getItem('storageCleared')) {
+        // Clear storage
+        localStorage.clear();
+        sessionStorage.clear(); // Clear session storage itself first
+
+        // Set a flag in sessionStorage to indicate it has been cleared for this session
+        sessionStorage.setItem('storageCleared', 'true');
+        console.log('Storage cleared for this session.');
+      } else {
+        console.log('Storage already cleared for this session.');
+      }
+
+      // Simulate server connectivity check
+      checkServerConnectivity();
+    });
+
+    function checkServerConnectivity() {
+  // Create a timestamp to prevent caching
+  const timestamp = new Date().getTime();
+  
+  // Count attempts to prevent infinite retries
+  if (!window.connectivityAttempts) {
+    window.connectivityAttempts = 0;
+  }
+  window.connectivityAttempts++;
+  
+  // Only try up to 3 times, then show the content anyway
+  if (window.connectivityAttempts > 3) {
+    document.getElementById('auth-loader').classList.add('hidden');
+    document.getElementById('page-content').classList.remove('hidden');
+    console.log('Giving up on connectivity check after multiple attempts');
+    return;
+  }
+
+  // Use fetch with a timeout to check server connectivity
+  const timeoutPromise = new Promise((_, reject) =>
+    setTimeout(() => reject(new Error('Timeout')), 5000)
+  );
+
+  Promise.race([
+    fetch(window.location.href + '?t=' + timestamp),
+    timeoutPromise
+  ])
+    .then(() => {
+      // Server is available, hide loader
+      document.getElementById('auth-loader').classList.add('hidden');
+      document.getElementById('page-content').classList.remove('hidden');
+    })
+    .catch(error => {
+      console.log('Server connection issue:', error);
+      // Retry after a delay
+      setTimeout(checkServerConnectivity, 2000);
+    });
+}
   </script> -->
 </head>
 
 <body>
+
   <main>
+
+
     <section class="left-side" role="main">
       <header>
         <nav>
-          <img src="assets/images/LOGO.jpeg" width="50px" height="50px" alt="">
+          <a href="index.html" aria-label="Go to Home Page">
+            <img src="assets/images/LOGO.jpeg" width="50px" height="50px" alt="Site Logo">
+          </a>
           <!-- <button id="toggle-R-theme" class="toggleRButtonTheme"><i id="toggleRThemeIcon" class="fa-solid fa-moon"></i></button> -->
         </nav>
       </header>
@@ -89,19 +166,19 @@
           </div>
 
           <!-- <div class="social-login">
-            <p id="social-heading">Continue with</p>
-            <div class="social-buttons" role="group" aria-labelledby="social-heading">
-              <button type="button" class="social-btn google" aria-label="Sign in with Google" id="google-login">
-                <i class="fa-brands fa-google" aria-hidden="true"></i>
-              </button>
-              <button type="button" class="social-btn facebook" aria-label="Sign in with Facebook" id="facebook-login">
-                <i class="fa-brands fa-facebook-f"></i>
-              </button>
-              <button type="button" class="social-btn twitter" aria-label="Sign in with Twitter" id="twitter-login">
-                <i class="fa-brands fa-twitter"></i>
-              </button>
-            </div>
-          </div> -->
+          <p id="social-heading">Continue with</p>
+          <div class="social-buttons" role="group" aria-labelledby="social-heading">
+            <button type="button" class="social-btn google" aria-label="Sign in with Google" id="google-login">
+              <i class="fa-brands fa-google" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="social-btn facebook" aria-label="Sign in with Facebook" id="facebook-login">
+              <i class="fa-brands fa-facebook-f"></i>
+            </button>
+            <button type="button" class="social-btn twitter" aria-label="Sign in with Twitter" id="twitter-login">
+              <i class="fa-brands fa-twitter"></i>
+            </button>
+          </div>
+        </div> -->
 
         </form>
       </div>
@@ -110,24 +187,8 @@
       <div id="quoteContainer"></div>
     </section>
 
-  </main>
-  <script>
-    window.addEventListener("DOMContentLoaded", function () {
-      // Check if the storage has already been cleared in this session
-      if (!sessionStorage.getItem('storageCleared')) {
-        // Clear storage
-        localStorage.clear();
-        sessionStorage.clear(); // Clear session storage itself first
 
-        // Set a flag in sessionStorage to indicate it has been cleared for this session
-        // Note: Since we just cleared sessionStorage, we need to set the flag *after* clearing.
-        sessionStorage.setItem('storageCleared', 'true');
-        console.log('Storage cleared for this session.');
-      } else {
-        console.log('Storage already cleared for this session.');
-      }
-    });
-  </script>
+  </main>
   <script src="js/auth-regist.js"></script>
   <script src="js/passwordHash.js"></script>
   <script src="js/registration.js"></script>

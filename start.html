@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="css/start.css" />
+  <script src="js/auth-guard.js"></script>
 </head>
 
 <body>
@@ -20,6 +21,7 @@
       <button id="st-theme-btn">
         <img src="assets/icons/icon-dark.svg" alt="mode icon" />
       </button>
+      <button onclick="logout()" style="margin-left: 20px;" class="logout-btn">Logout</button>
     </header>
 
     <section class="st-menu">
@@ -69,9 +71,10 @@
     <footer>
       <button class="st-start-exam-btn">Start Exam</button>
     </footer>
+
+    
   </main>
 
-  <script src="js/auth-guard.js"></script>
   <script src="js/start.js"></script>
 </body>
 

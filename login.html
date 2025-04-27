@@ -6,17 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
   <link rel="stylesheet" href="css/login.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-  <main>
+  <main id="page-content" class="content">
+    <!-- Add this at the top of the body in each HTML file -->
+    <div id="auth-loader" class="loader-container">
+      <div class="loader"></div>
+    </div>
     <header>
       <nav>
-        <img src="assets/images/LOGO.jpeg" width="50px" height="50px" alt="">
+        <a href="login.html" aria-label="Go to Home Page">
+          <img src="assets/images/LOGO.jpeg" width="50px" height="50px" alt="Site Logo">
+        </a>
         <!-- <button id="toggle-theme" class="toggleButtonTheme"><i id="toggleThemeIcon" class="fa-solid fa-moon"></i></button> -->
       </nav>
     </header>
@@ -42,13 +49,16 @@
           <div class="footer-left">
             <ul class="socials">
               <li>
-                <a href="https://www.facebook.com/" class="facebook-icon" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.facebook.com/" class="facebook-icon" title="Facebook"><i
+                    class="fa-brands fa-facebook"></i></a>
               </li>
               <li>
-                <a href="https://x.com/home" class="twitter-icon" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://x.com/home" class="twitter-icon" title="twitter"><i
+                    class="fa-brands fa-twitter"></i></a>
               </li>
-              <li >
-                <a href="https://www.linkedin.com/" class="linkedin-icon" title="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+              <li>
+                <a href="https://www.linkedin.com/" class="linkedin-icon" title="linkedin"><i
+                    class="fa-brands fa-linkedin"></i></a>
               </li>
             </ul>
             <span>
@@ -91,9 +101,9 @@
             <span class="or-divider">or</span>
             <!-- <a href="registration.html" class="secondary-btn">Sign Up</a> -->
             <!-- onclick="location.replace('registration.html')" -->
-            <button type="button" class="secondary-btn" id="si" >Sign Up</button>
+            <button type="button" class="secondary-btn" id="si">Sign Up</button>
           </div>
-<!-- 
+          <!-- 
           <div class="social-login">
             <p id="social-heading">Continue with</p>
             <div class="social-buttons" role="group" aria-labelledby="social-heading">
@@ -113,10 +123,21 @@
       </div>
     </section>
   </main>
+
   <script src="js/passwordHash.js"></script>
   <script src="js/login.js"></script>
   <script src="js/auth-guard.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" ></script>
+  <!-- <script>
+    (function () {
+      // Only clear storage when the server session starts
+      if (!sessionStorage.getItem('serverSessionStarted')) {
+        localStorage.clear();
+        sessionStorage.setItem('serverSessionStarted', 'true');
+        console.log('Storage cleared on server session start');
+      }
+    })();
+  </script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
 
 
 </body>
