@@ -282,12 +282,40 @@ function submitExam() {
   // localStorage.setItem("examTopic", examName);
   window.location.replace("results.html");
 }
+// submitButton.addEventListener("click", function (e) {
+//   e.preventDefault();
+//   checkedAnswered();
+//   var confirmSubmit = confirm("Are you sure you want to submit the exam?");
+//   if (confirmSubmit) {
+//     submitExam();
+//   }
+// }
+//   );
+
 submitButton.addEventListener("click", function (e) {
   e.preventDefault();
-  checkedAnswered();
-  var confirmSubmit = confirm("Are you sure you want to submit the exam?");
+  checkedAnswered(); 
+  
+  // Count unanswered questions
+  var unansweredCount = 0;
+  var unansweredQuestions = [];
+  
+  for (let i = 0; i < questions.length; i++) {
+    if (!questions[i].hasOwnProperty('userAnswer') || questions[i].userAnswer === undefined) {
+      unansweredCount++;
+      unansweredQuestions.push(i + 1); // Store question number (1-based)
+    }
+  }
+  
+  var confirmMessage = "";
+  if (unansweredCount > 0) {
+    confirmMessage = `Are you sure you want to submit? ${unansweredCount} question${unansweredCount > 1 ? 's are' : ' is'} still unanswered (Questions: ${unansweredQuestions.join(', ')}).`;
+  } else {
+    confirmMessage = "Are you sure you want to submit the exam?";
+  }
+  
+  var confirmSubmit = confirm(confirmMessage);
   if (confirmSubmit) {
     submitExam();
   }
-}
-  );
+});

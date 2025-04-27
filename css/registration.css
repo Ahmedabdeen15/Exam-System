@@ -198,7 +198,6 @@ main {
 }
 
 .my-form form {
-  padding: 30px;
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
@@ -214,12 +213,12 @@ main {
   /* background-image: linear-gradient(rgba(175, 92, 92, 0.85), rgba(164, 157, 157, 0.85)), url('../assets/images/coverImage.jpeg'); */
 
   position: relative;
-  margin-top: -13%;
+  top: -25px;
 }
 
 .my-form h2 {
   margin-bottom: 15px;
-  font-size: 32px;
+  font-size: 40px;
   color: var(--text-primary);
   text-align: center;
   font-weight: 600;
@@ -483,12 +482,9 @@ a:focus,
   }
 
   .my-form {
-    width: 90%;
+    width: max-content;
   }
 
-  .my-form form {
-    transform: scale(0.85);
-  }
 
   .my-form h2 {
     margin-bottom: 12px;
@@ -496,13 +492,21 @@ a:focus,
     width: max-content;
   }
 
+  .my-form form
+  {
+    top: -28px;
+    left: 10px;
+  }
+
   .primary-btn, .secondary-btn {
     white-space: nowrap;  
   }
   
-  .button-container {
-    padding-left: 5px;
-    padding-right: 5px;      
+
+  nav img
+  {
+    width: 40px;
+    height: 40px;
   }
   
 }
