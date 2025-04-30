@@ -292,7 +292,40 @@ nav {
 }
 
 .lower-class span {
-  margin-bottom: 2%;
+  display: inline-block;    
+  width: auto;             
+  white-space: nowrap;    
+  word-break: normal;       
+  margin-bottom: 2%;  
+  font-size: 18px;  
+  margin-left: 3%;   
+}
+
+/* Adjust margin at breakpoints (optional) */
+@media (max-width: 1400px) {
+  .lower-class span { 
+    margin-bottom: 1.9%;
+    width: auto;              /* shrink-to-fit by default */ 
+    white-space: nowrap;      /* prevent breaking inside the phrase */ 
+    word-break: normal;       /* only break at spaces if needed */ 
+   }
+}
+@media (max-width: 992px) {
+  .lower-class span { margin-bottom: 1.8%; }
+}
+@media (max-width: 768px) {
+  .lower-class span { margin-bottom: 1.5%; }
+}
+@media (max-width: 480px) {
+  /* On narrowest screens, make it block-level 
+     so the entire phrase jumps as one unit */
+  .lower-class span {
+    /* display: block;
+    width: 100%; */
+    white-space: wrap;
+    margin-bottom: 1.2%;
+    font-size: 10px;
+  }
 }
 
 .footer-left {
