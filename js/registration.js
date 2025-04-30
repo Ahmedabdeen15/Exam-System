@@ -531,34 +531,31 @@ function resetInactivityTimer() {
 resetInactivityTimer();
 */
 
-// Hide main element and alert after 30s of user inactivity
+/*
 let inactivityTimer;
 
 function resetInactivityTimer() {
   clearTimeout(inactivityTimer);
   inactivityTimer = setTimeout(function () {
-    // Clear input fields
+
     document.getElementById("FName").value = "";
     document.getElementById("LName").value = "";
     document.getElementById("email").value = "";
     document.getElementById("password").value = "";
     document.getElementById("repeatPassword").value = "";
 
-    // Alert the user
     alert("You have exceeded the time limit");
 
-    // Refresh the page
     location.reload();
   }, 30000);
 }
 
-// Reset timer on user activity
 ["mousemove", "keydown", "mousedown", "touchstart"].forEach((event) => {
   document.addEventListener(event, resetInactivityTimer);
 });
 
-// Start timer initially
 resetInactivityTimer();
+*/
 
 // End Left Side - Form //
 
@@ -626,3 +623,107 @@ document.body.style.background = `linear-gradient(
     hsl(${Math.random() * 360}, 70%, 30%),
     hsl(${Math.random() * 360}, 70%, 30%)
 )`;
+
+// Create the modal div for the timeout message
+const timeoutModal = document.createElement("div");
+timeoutModal.id = "timeout-modal";
+timeoutModal.innerHTML = `
+  <div class="timeout-modal-content">
+    <h2>Session Timeout</h2>
+    <p>You have exceeded the time limit.</p>
+    <button id="timeout-ok-btn">OK</button>
+  </div>
+`;
+timeoutModal.style.display = "none";
+document.body.appendChild(timeoutModal);
+
+// Style the modal and background
+const style = document.createElement("style");
+style.textContent = `
+  #timeout-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
+    );
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .timeout-modal-content {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    text-align: center;
+    max-width: 500px;
+  }
+  .timeout-modal-content h2 {
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1.7rem;
+    font-weight: 700;
+  }
+  .timeout-modal-content p {
+    color: #555;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+#timeout-ok-btn {
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 2.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-weight: 600;
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+}
+#timeout-ok-btn:hover {
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
+}
+`;
+document.head.appendChild(style);
+
+// Update inactivity timer logic
+let inactivityTimer;
+
+function resetInactivityTimer() {
+  clearTimeout(inactivityTimer);
+  inactivityTimer = setTimeout(function () {
+    // Clear input fields
+    document.getElementById("FName").value = "";
+    document.getElementById("LName").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("repeatPassword").value = "";
+
+    // Show the modal
+    timeoutModal.style.display = "flex";
+
+    // Optionally, blur the background
+    document.body.style.filter = "blur(0.5px)";
+
+    // Prevent interaction with the rest of the page
+    document.body.style.overflow = "hidden";
+  }, 50000);
+}
+
+// Reset timer on user activity
+["mousemove", "keydown", "mousedown", "touchstart"].forEach((event) => {
+  document.addEventListener(event, resetInactivityTimer);
+});
+
+// Start timer initially
+resetInactivityTimer();
+
+// Handle OK button to reload the page
+document.getElementById("timeout-ok-btn").onclick = function () {
+  timeoutModal.style.display = "none";
+  document.body.style.overflow = "";
+  document.body.style.filter = "";
+  location.reload();
+};
