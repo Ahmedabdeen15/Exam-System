@@ -85,7 +85,7 @@
             <label for="password" id="password-label" class="password">Password*:</label>
             <div class="password-container">
               <input type="password" id="password" placeholder="******" required aria-required="true"
-                aria-describedby="PSpan">
+                aria-describedby="PSpan" oncopy="return false" oncut="return false" onpaste="return false">
               <button type="button" id="showPass" class="toggle-password" aria-label="Toggle password visibility">
                 <i class="fa-solid fa-eye-slash" id="togglePasswordIcon" aria-hidden="true"></i>
               </button>

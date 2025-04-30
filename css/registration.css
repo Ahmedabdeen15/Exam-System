@@ -305,6 +305,7 @@ a:focus,
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s;
+  white-space: nowrap;
 }
 
 .primary-btn:hover {
@@ -330,12 +331,45 @@ a:focus,
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s;
+  white-space: nowrap; 
 }
 
 .secondary-btn:hover {
     background-color: var(--input-bg);
 }
 
+
+@media (max-width: 350px) {
+  .button-container
+  {
+    display: block;
+  }
+
+  .primary-btn
+  {
+    margin-bottom: 2%;
+    display: block;
+  }
+
+  .or-divider
+  {
+    display: block;
+    margin-bottom: 2%;
+    margin-left: 45%;
+    font-size: 15px;
+  }
+
+  .secondary-btn
+  {
+    display: block;
+  }
+
+  .primary-btn, .secondary-btn
+  {
+    width: 100%;
+    font-size: 12px; 
+  }
+}
 .social-login {
   text-align: center;
   margin-top: -11%;
@@ -505,10 +539,6 @@ a:focus,
   {
     top: -28px;
     left: 10px;
-  }
-
-  .primary-btn, .secondary-btn {
-    white-space: nowrap;  
   }
   
 

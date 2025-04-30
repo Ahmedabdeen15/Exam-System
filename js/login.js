@@ -112,29 +112,8 @@ function validateEmail() {
   }
 }
 
-EMAIL.addEventListener("input", validateEmail);
+EMAIL.addEventListener("click", validateEmail);
 
-// const PASSWORD_CONFIG = {
-//   minLength: 12,
-//   regex:
-//     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/,
-// Password validation configuration
-const PASSWORD_CONFIG = {
-  minLength: 12,
-  maxLength: 18,
-  regex:
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\W_]{12,18}$/,
-  commonPatterns: [
-    "123456",
-    "password",
-    "qwerty",
-    "admin",
-    "welcome",
-    "111111",
-    "123123",
-    "abc123",
-  ],
-};
 
 // Main password validation function
 async function validatePassword() {
@@ -147,124 +126,14 @@ async function validatePassword() {
     return false;
   }
 
-  // Length check
-  if (password.length > PASSWORD_CONFIG.maxLength) {
-    Pspan.textContent = `Password must be at most ${PASSWORD_CONFIG.maxLength} characters`;
-    return false;
-  }
-
-  // Check for common patterns
-  if (hasCommonPattern(password)) {
-    Pspan.textContent =
-      "Password contains a common pattern. Please use a more secure password.";
-    return false;
-  }
-
-  // Regex check for complexity requirements
-  if (!PASSWORD_CONFIG.regex.test(password)) {
-    Pspan.textContent = `Password must be at least ${PASSWORD_CONFIG.minLength} characters with uppercase, lowercase, number, and special character`;
-    return false;
-  }
-
-  if (passwordHash !== savedPassword) {
-    Pspan.textContent = "Incorrect password";
-    return false;
-  }
-
   // Success case
   Pspan.textContent = "";
   return true;
 }
 
-// Helper function to check for common weak patterns
-function hasCommonPattern(password) {
-  return PASSWORD_CONFIG.commonPatterns.some((pattern) =>
-    password.toLowerCase().includes(pattern)
-  );
-}
-
-// Password strength visualization
-function checkPasswordStrength() {
-  const password = PASSWORD.value;
-
-  // Remove any existing meter
-  const existingMeter = document.querySelector(".strength-meter");
-  if (existingMeter) existingMeter.remove();
-
-  // If password is empty, don't show meter
-  if (password === "") return;
-
-  // Create meter container
-  const strengthMeter = document.createElement("div");
-  strengthMeter.className = "strength-meter";
-
-  // Calculate strength score
-  let strength = 0;
-  if (password.length >= 8) strength += 1;
-  if (password.length >= 12) strength += 1;
-  if (/[A-Z]/.test(password)) strength += 1;
-  if (/[a-z]/.test(password)) strength += 1;
-  if (/[0-9]/.test(password)) strength += 1;
-  if (/[^A-Za-z0-9]/.test(password)) strength += 1;
-
-  // Create strength indicator bar
-  const strengthBar = document.createElement("div");
-  strengthBar.className = "strength-bar";
-
-  // Determine text and color based on strength
-  let strengthLabel = "";
-  let color = "";
-
-  // Check for password max length
-  if (password.length > PASSWORD_CONFIG.maxLength) {
-    strengthLabel = "Too Long";
-    color = "#ff4d4d"; // Red
-  } else {
-    switch (strength) {
-      case 0:
-      case 1:
-        strengthLabel = "Very Weak";
-        color = "#ff4d4d"; // Red
-        break;
-      case 2:
-      case 3:
-        strengthLabel = "Weak";
-        color = "#ffa64d"; // Orange
-        break;
-      case 4:
-        strengthLabel = "Medium";
-        color = "#ffcc80"; // Light orange
-        break;
-      case 5:
-        strengthLabel = "Strong";
-        color = "#ffcc00"; // Yellow
-        break;
-      case 6:
-        strengthLabel = "Very Strong";
-        color = "#00cc00"; // Green
-        break;
-    }
-  }
-
-  // Set visual properties
-  strengthBar.style.width = `${(strength / 6) * 100}%`;
-  strengthBar.style.backgroundColor = color;
-
-  // Create text indicator
-  const strengthText = document.createElement("span");
-  strengthText.textContent = strengthLabel;
-
-  // Assemble and insert the meter
-  strengthMeter.appendChild(strengthBar);
-  strengthMeter.appendChild(strengthText);
-  PASSWORD.parentNode.appendChild(strengthMeter);
-
-  return strength >= 4 && password.length <= PASSWORD_CONFIG.maxLength; // Consider 4+ as acceptable strength and check max length
-}
 // Set up event listeners
-PASSWORD.addEventListener("input", function () {
+PASSWORD.addEventListener("click", function () {
   validatePassword();
-  checkPasswordStrength();
 });
 
 const savedEmail = localStorage.getItem("userEmail");
