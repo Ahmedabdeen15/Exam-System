@@ -56,15 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const tryAgainButton = document.querySelector(".re-try-again");
     tryAgainButton.addEventListener("click", () => {
         localStorage.removeItem("examResults");
-        window.location.replace("start.html");
+        window.location.replace("start");
     });
 });
 
 function logout() {
     localStorage.removeItem("examResults");
-    localStorage.removeItem('isRegistered');
     localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('userEmail');
-    localStorage.removeItem('userPassword');
-    window.location.replace('index.html');
+    window.location.replace('login');
 }

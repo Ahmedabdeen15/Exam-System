@@ -48,14 +48,11 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("examTopic", selectedTopic);
         localStorage.setItem("questionCount", selectedCount);
 
-        window.location.replace("examPage.html");
+        window.location.replace("examPage");
     });
 });
 
 function logout() {
-    localStorage.removeItem('isRegistered');
     localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('userEmail');
-    localStorage.removeItem('userPassword');
-    window.location.replace('index.html');
+    window.location.replace('login');
 }
