@@ -13,29 +13,33 @@ var markButton = document.getElementById("markButton");
 var submitButton = document.getElementById("submitButton");
 
 window.onload = function () {
-  console.log(localStorage.getItem('isRegistered'));
-  if(localStorage.getItem('isRegistered') === null || localStorage.getItem('isRegistered') === "false"){
+  console.log(localStorage.getItem("isRegistered"));
+  if (
+    localStorage.getItem("isRegistered") === null ||
+    localStorage.getItem("isRegistered") === "false"
+  ) {
     this.location.replace("index");
-
-  }else if(localStorage.getItem('isLoggedIn') === null || localStorage.getItem('isLoggedIn') === "false"){
+  } else if (
+    localStorage.getItem("isLoggedIn") === null ||
+    localStorage.getItem("isLoggedIn") === "false"
+  ) {
     this.location.replace("login");
-  }else{
+  } else {
     getExamData();
     loadAllQuestions(examName, questionCount);
   }
 };
 
-
-
-function getExamData(){
-  if(localStorage.getItem('examTopic') != null && localStorage.getItem('questionCount')!= null)
-    {
-    examName = localStorage.getItem('examTopic');
-    questionCount = localStorage.getItem('questionCount');
-    localStorage.removeItem('examTopic');
-    localStorage.removeItem('questionCount');
-  }
-  else{
+function getExamData() {
+  if (
+    localStorage.getItem("examTopic") != null &&
+    localStorage.getItem("questionCount") != null
+  ) {
+    examName = localStorage.getItem("examTopic");
+    questionCount = localStorage.getItem("questionCount");
+    localStorage.removeItem("examTopic");
+    localStorage.removeItem("questionCount");
+  } else {
     window.location.replace("403");
   }
 }
@@ -53,8 +57,7 @@ function loadAllQuestions(exam, size) {
       var time = 60 * size;
       timerControl(time);
       loader.classList.add("hidden");
-    }
-    else if(xhrQustion.status === 404){
+    } else if (xhrQustion.status === 404) {
       window.location.replace("403");
     }
   });
@@ -85,7 +88,7 @@ function addState(arr) {
 }
 
 function loadBookmark(arr) {
-  bookmarkList.innerHTML ="";
+  bookmarkList.innerHTML = "";
   for (let i = 0; i < arr.length; i++) {
     var li = document.createElement("li");
     var link = document.createElement("a");
@@ -105,16 +108,14 @@ function loadBookmark(arr) {
       loadBookmark(questions);
       questionIndex = i;
       loadQuestion(i);
-      if(questionIndex < (questions.length -1)){
+      if (questionIndex < questions.length - 1) {
         nextButton.classList.remove("disabled-button");
-      }
-      else{
+      } else {
         nextButton.classList.add("disabled-button");
       }
-      if(questionIndex > 0){
+      if (questionIndex > 0) {
         backButton.classList.remove("disabled-button");
-      }
-      else{
+      } else {
         backButton.classList.add("disabled-button");
       }
     });
@@ -170,7 +171,10 @@ function loadQuestion(questionNumber) {
       input.setAttribute("name", "answers");
       input.setAttribute("value", questions[questionNumber]["answers"][i]);
 
-      if (questions[questionNumber]["answers"][i] === questions[questionIndex].userAnswer) {
+      if (
+        questions[questionNumber]["answers"][i] ===
+        questions[questionIndex].userAnswer
+      ) {
         input.setAttribute("checked", "true");
       }
 
@@ -184,8 +188,7 @@ function loadQuestion(questionNumber) {
       if (questions[questionIndex].state == 2) {
         markButton.classList.add("marked");
         markButton.firstChild.textContent = "UNMARK";
-      }
-      else{
+      } else {
         markButton.classList.remove("marked");
         markButton.firstChild.textContent = "MARK";
       }
@@ -193,10 +196,9 @@ function loadQuestion(questionNumber) {
   }
 }
 
-nextButton.addEventListener("click",function(e){
+nextButton.addEventListener("click", function (e) {
   e.preventDefault();
-  if(questionIndex < (questions.length-1))
-  {
+  if (questionIndex < questions.length - 1) {
     if (enabledQuestion <= questionIndex) {
       enabledQuestion++;
     }
@@ -204,41 +206,39 @@ nextButton.addEventListener("click",function(e){
     questionIndex++;
     loadQuestion(questionIndex);
     loadBookmark(questions);
-    if(questionIndex === (questions.length-1)){
+    if (questionIndex === questions.length - 1) {
       this.classList.add("disabled-button");
     }
-    if(questionIndex > 0){
+    if (questionIndex > 0) {
       backButton.classList.remove("disabled-button");
     }
   }
 });
 
-backButton.addEventListener("click",function(e){
+backButton.addEventListener("click", function (e) {
   e.preventDefault();
-  if(questionIndex > 0)
-  {
+  if (questionIndex > 0) {
     checkedAnswered();
     questionIndex--;
     loadQuestion(questionIndex);
     loadBookmark(questions);
-    if(questionIndex === 0){
+    if (questionIndex === 0) {
       this.classList.add("disabled-button");
     }
-    if(questionIndex < (questions.length -1)){
+    if (questionIndex < questions.length - 1) {
       nextButton.classList.remove("disabled-button");
     }
   }
 });
 
-markButton.addEventListener("click",function(e){
+markButton.addEventListener("click", function (e) {
   e.preventDefault();
-  if(questions[questionIndex].state != 2){
+  if (questions[questionIndex].state != 2) {
     questions[questionIndex].state = 2;
     loadBookmark(questions);
     this.classList.add("marked");
     this.firstChild.textContent = "UNMARK";
-  }
-  else{
+  } else {
     questions[questionIndex].state = 0;
     loadBookmark(questions);
     checkedAnswered();
@@ -247,20 +247,21 @@ markButton.addEventListener("click",function(e){
   }
 });
 
-
-function checkedAnswered(){
-  if(questions[questionIndex].state != 2){
-    if(form.querySelector("input[name=\"answers\"]:checked") === null){
+function checkedAnswered() {
+  if (questions[questionIndex].state != 2) {
+    if (form.querySelector('input[name="answers"]:checked') === null) {
       questions[questionIndex].state = -1;
-    }
-    else{
+    } else {
       questions[questionIndex].state = 1;
-      questions[questionIndex].userAnswer = form.querySelector("input[name=\"answers\"]:checked")?.value;
+      questions[questionIndex].userAnswer = form.querySelector(
+        'input[name="answers"]:checked'
+      )?.value;
     }
-  }
-  else{
-    if(form.querySelector("input[name=\"answers\"]:checked") !== null){
-      questions[questionIndex].userAnswer = form.querySelector("input[name=\"answers\"]:checked")?.value;
+  } else {
+    if (form.querySelector('input[name="answers"]:checked') !== null) {
+      questions[questionIndex].userAnswer = form.querySelector(
+        'input[name="answers"]:checked'
+      )?.value;
     }
   }
 }
@@ -268,7 +269,7 @@ function checkedAnswered(){
 function submitExam() {
   var grade = 0;
   for (let i = 0; i < questions.length; i++) {
-    if(questions[i].userAnswer === questions[i].isCorrect) {
+    if (questions[i].userAnswer === questions[i].isCorrect) {
       grade++;
     }
   }
@@ -285,9 +286,30 @@ function submitExam() {
 submitButton.addEventListener("click", function (e) {
   e.preventDefault();
   checkedAnswered();
-  var confirmSubmit = confirm("Are you sure you want to submit the exam?");
+  // var confirmSubmit = confirm("Are you sure you want to submit the exam?");
+  // if (confirmSubmit) {
+  //   submitExam();
+  // }
+  // Find unanswered questions
+  var unansweredIndexes = [];
+  for (let i = 0; i < questions.length; i++) {
+    if (
+      questions[i].state !== 1 && // not answered
+      questions[i].state !== 2 // not just bookmarked
+    ) {
+      unansweredIndexes.push(i + 1); // 1-based index for display
+    }
+  }
+
+  let confirmMessage = "Are you sure you want to submit the exam?";
+  if (unansweredIndexes.length > 0) {
+    confirmMessage = `Are you sure you want to submit the exam? You have ${
+      unansweredIndexes.length
+    } unanswered question(s): ${unansweredIndexes.join(", ")}.`;
+  }
+
+  var confirmSubmit = confirm(confirmMessage);
   if (confirmSubmit) {
     submitExam();
   }
-}
-  );
+});
