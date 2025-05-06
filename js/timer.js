@@ -1,9 +1,13 @@
-var timer,totalTime;
+var timer = 0;
+var totalTime;
+var interval;
+var minutes, seconds;
 
-function startTimer(duration, display) {
-  timer = duration;
-  var minutes, seconds;
-  var interval = setInterval(function () {
+var progressBarVal = 0;
+function startTimer(duration, display, resumeTimer) {
+  timer = resumeTimer ? timer : duration;
+  interval = null;
+  interval = setInterval(function () {
     minutes = parseInt(timer / 60, 10);
     seconds = parseInt(timer % 60, 10);
 
@@ -11,12 +15,12 @@ function startTimer(duration, display) {
     seconds = seconds < 10 ? "0" + seconds : seconds;
 
     display.textContent = minutes + ":" + seconds;
-    var progressBar = 100 - (timer / duration) * 100;
-    progressBarControl(progressBar);
+    progressBarVal = 100 - (timer / duration) * 100;
+    progressBarControl(progressBarVal);
     if (--timer < 0) {
       clearInterval(interval);
       alert("Time's up!");
-      submitExam();
+      submitExam(true);
       // display.textContent = "Time's up!";
     }
   }, 1000);
@@ -24,9 +28,9 @@ function startTimer(duration, display) {
 function timerControl(time) {
   totalTime = time;
   var display = document.getElementById("timer");
-  startTimer(time, display);
+  startTimer(time, display, false);
 }
-function getRemainingTime(){
+function getEscapedTime() {
   var escapedTime = totalTime - timer;
   minutes = parseInt(escapedTime / 60, 10);
   seconds = parseInt(escapedTime % 60, 10);
@@ -36,3 +40,11 @@ function getRemainingTime(){
   return minutes + ":" + seconds;
 }
 
+function pauseTimer() {
+  clearInterval(interval);
+  interval = null;
+}
+function resumeTimer() {
+  var display = document.getElementById("timer");
+  startTimer(totalTime, display, true);
+}
