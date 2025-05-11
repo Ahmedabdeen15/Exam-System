@@ -19,9 +19,7 @@ function startTimer(duration, display, resumeTimer) {
     progressBarControl(progressBarVal);
     if (--timer < 0) {
       clearInterval(interval);
-      alert("Time's up!");
-      submitExam(true);
-      // display.textContent = "Time's up!";
+      timeOut();
     }
   }, 1000);
 }

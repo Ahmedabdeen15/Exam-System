@@ -91,12 +91,23 @@ textarea:not([rows]) {
 
 :root {
   --oxford-blue: #152235ff;
+  --light-oxford-blue: rgb(38, 62, 97);
   --silver: #cdcfd2ff;
   --tomato: #fa524aff;
   --coyote: #83592fff;
   --prussian-blue: #152434ff;
+  --dark-oxford-blue: #0a1622;
+  --dark-light-oxford-blue: #1e2a3a ;
+  --dark-silver: #a1a3a6 ;
+  --dark-tomato: #ff6b63 ;
+  --dark-coyote: #9a6b3c ;
+  --dark-prussian-blue: #0e1a26 ;
 }
 
+nav #themeIcon {
+  fill: var(--silver);
+  height: 4rem;
+}
 .quiz-screen {
   font-family: "Noto Sans", sans-serif;
   color: var(--silver);
@@ -105,6 +116,11 @@ textarea:not([rows]) {
   margin: 0;
 }
 .quiz-screen nav {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: var(--silver);
   padding-left: 1%;
   padding-right: 1%;
   background-color: var(--prussian-blue);
@@ -227,6 +243,7 @@ textarea:not([rows]) {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  transition: all 0.3s ease;
 }
 .progress {
   display: flex;
@@ -388,9 +405,8 @@ textarea:not([rows]) {
 .buttons .mark-button:hover {
   background-color: rgb(156, 86, 0);
 }
-.marked{
+.marked {
   background-color: rgb(156, 86, 0) !important;
-
 }
 .marked:hover {
   background-color: darkorange !important;
@@ -417,9 +433,30 @@ textarea:not([rows]) {
 .submit button[type="submit"]:hover {
   background-color: #07520a;
 }
+
+
+/* dark theme */
+.dark-theme {
+  background-color: var(--dark-oxford-blue);
+  color: var(--dark-silver);
+}
+.dark-theme .quiz-area{
+  background-color: var(--dark-oxford-blue);
+  color: var(--silver);
+}
+.dark-theme .bookmarks {
+  background-color: var(--dark-light-oxford-blue);
+  color: var(--silver);
+}
+.dark-theme .qustion-area .choice label{
+  border:  2px solid var(--silver);
+}
 @media only screen and (max-width: 1024.98px) {
   .bookmarks ul li a div {
     font-size: 1rem;
+  }
+  .quiz-area{
+    width: 100%;
   }
   .quiz-area form {
     flex-direction: column;
@@ -485,17 +522,18 @@ textarea:not([rows]) {
   .opened {
     width: 10% !important;
   }
-  .custom-progress{
-    margin-right: .5rem;
+  .custom-progress {
+    margin-right: 0.5rem;
   }
-  #timer{
+  #timer {
     margin-left: 0.5rem;
   }
   .quiz-area {
     margin-left: 1rem;
     flex-grow: initial;
   }
-  .buttons a, .submit button[type="submit"]{
+  .buttons a,
+  .submit button[type="submit"] {
     padding: 1rem 1.5rem;
   }
 }
@@ -508,7 +546,8 @@ textarea:not([rows]) {
   * {
     font-size: 8px;
   }
-  .buttons a, .submit button[type="submit"]{
+  .buttons a,
+  .submit button[type="submit"] {
     padding: 1rem 2rem;
   }
 }
@@ -524,12 +563,13 @@ textarea:not([rows]) {
   display: flex;
 }
 
-#formOverlay {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   background-color: rgba(90, 90, 90, 0.185);
   display: flex;
@@ -574,4 +614,64 @@ textarea:not([rows]) {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.alertCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--silver);
+  color: var(--oxford-blue);
+  width: 35rem;
+  height: 20rem;
+  border-radius: 1.5rem;
+  border: var(--oxford-blue) 2px solid;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+}
+#alertMessage {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: var(--oxford-blue);
+}
+
+#yesButton,
+#noButton,
+#timeoutButton {
+  background-color: rgb(42, 224, 42);
+  color: var(--silver);
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+#yesButton:hover {
+  background-color: rgb(0, 153, 0);
+}
+
+#noButton {
+  background-color: red;
+  margin-left: 1rem;
+}
+
+#noButton:hover {
+  background-color: rgb(153, 0, 0);
+}
+#timeoutButton {
+  background-color: var(--oxford-blue);
+  margin-top: 2rem;
+}
+#timeoutButton:hover {
+  background-color: var(--light-oxford-blue);
+}
+.timeoutAlert {
+  width: 20rem;
+  height: 15rem;
 }

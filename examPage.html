@@ -20,23 +20,62 @@
 </head>
 
 <body class="quiz-screen">
-    <div id="formOverlay">
+    <div id="formOverlay" class="overlay">
         <span class="loader"></span>
+    </div>
+    <div id="alertOverlaySubmit" class="overlay hidden">
+        <div class="alertCard">
+            <div class="alertCard-body">
+                <p id="alertMessage">Are you sure you want to submit?</p>
+
+            </div>
+            <div class="alertCard-footer">
+                <button id="yesButton">Yes</button>
+                <button id="noButton">No</button>
+            </div>
+        </div>
+    </div>
+    <div id="alertOverlayTimeOut" class="overlay hidden">
+        <div class="alertCard timeoutAlart">
+            <div class="alertCard-body">
+                <p id="alertMessage">Time is Out</p>
+
+            </div>
+            <div class="alertCard-footer">
+                <button id="timeoutButton">
+                    OK
+                </button>
+            </div>
+        </div>
     </div>
     <nav>
         <img src="assets/images/icon2.jpg" alt="Logo">
+        <a href="#">
+            <svg id="themeIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="m7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5c-3.07 0-5.53-2.46-5.53-5.5a5.5 5.5 0 0 1 5.5-5.5m11.57 1.5 1.43 1.43-15.57 15.57-1.43-1.43zm-6.18 2.43-1.48-.93-1.44 1 .42-1.7-1.39-1.06 1.75-.12.58-1.65.67 1.63 1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zm9.41 3.96a5.5 5.5 0 0 1 -5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zm-10.45 6.51 2.77 1.15-2.53 2.19z" />
+            </svg>
+        </a>
     </nav>
     <main>
         <div class="sidebar bookmarks" id="sidebar">
-            <a href="#" id="openSideBar">
-                <img src="assets/icons/sidebar-expand.svg" alt="">
+            <a href="#" id="openSideBar" aria-label="Open Sidebar">
+                <svg width="24" stroke-width="1.5" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 21L5 21C3.89543 21 3 20.1046 3 19L3 5C3 3.89543 3.89543 3 5 3L19 3C20.1046 3 21 3.89543 21 5L21 19C21 20.1046 20.1046 21 19 21Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16.75 10L18.5 12L16.75 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14.5 21V3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
             </a>
         </div>
         <div class="bookmarks" id="bookmarks">
             <div class="title-area">
                 <h1 class="title">Questions</h1>
-                <a href="#" id="closeSideBar">
-                    <img src="assets/icons/sidebar-collapse.svg" alt="">
+                <a href="#" id="closeSideBar" aria-label="Close Sidebar">
+                    <svg width="24" stroke-width="1.5" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 21L5 21C3.89543 21 3 20.1046 3 19L3 5C3 3.89543 3.89543 3 5 3L19 3C20.1046 3 21 3.89543 21 5L21 19C21 20.1046 20.1046 21 19 21Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7.25 10L5.5 12L7.25 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9.5 21V3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </a>
             </div>
             <ul id="bookmarksQuestion">
@@ -47,7 +86,7 @@
                 <div class="progress">
                     <div class="custom-progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                            aria-valuemax="100"></div>
+                            aria-valuemax="100" aria-label="Progress"></div>
                     </div>
                     <i class="fa-regular fa-clock"></i>
                     <label id="timer">99:99</label>
@@ -57,8 +96,10 @@
                 </form>
             </div>
             <div class="buttons">
-                <a href="#" class="nav disabled-button" id="backButton"><i class="fa-solid fa-arrow-left"></i> <label>back</label></a>
-                <a href="#" class="mark-button" id="markButton"><label>mark</label> <i class="fa-solid fa-bookmark"></i></a>
+                <a href="#" class="nav disabled-button" id="backButton"><i class="fa-solid fa-arrow-left"></i>
+                    <label>back</label></a>
+                <a href="#" class="mark-button" id="markButton"><label>mark</label> <i
+                        class="fa-solid fa-bookmark"></i></a>
                 <a href="#" class="nav " id="nextButton"><label>next</label> <i class="fa-solid fa-arrow-right"></i></a>
             </div>
             <div class="submit">

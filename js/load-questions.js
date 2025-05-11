@@ -3,7 +3,13 @@ var enabledQuestion = 0;
 var questionIndex = 0;
 var examName;
 var questionCount;
+var darkTheme;
 var loader = document.getElementById("formOverlay");
+var alertOverlaySubmit = document.getElementById("alertOverlaySubmit");
+var yesButton = document.getElementById("yesButton");
+var noButton = document.getElementById("noButton");
+var alertOverlayTimeOut = document.getElementById("alertOverlayTimeOut");
+var timeoutButton = document.getElementById("timeoutButton");
 var bookmarkList = document.getElementById("bookmarksQuestion");
 var questionHeader = document.getElementById("question");
 var form = document.getElementById("quiz-form");
@@ -11,9 +17,9 @@ var nextButton = document.getElementById("nextButton");
 var backButton = document.getElementById("backButton");
 var markButton = document.getElementById("markButton");
 var submitButton = document.getElementById("submitButton");
+var themeIcon = document.getElementById("themeIcon");
 
 window.onload = function () {
-  console.log(localStorage.getItem("isRegistered"));
   if (
     localStorage.getItem("isRegistered") === null ||
     localStorage.getItem("isRegistered") === "false"
@@ -25,10 +31,33 @@ window.onload = function () {
   ) {
     this.location.replace("login");
   } else {
+    checkDarkTheme()
     getExamData();
     loadAllQuestions(examName, questionCount);
   }
 };
+themeIcon.addEventListener("click", function (e) {
+  e.preventDefault();
+  darkTheme = ! darkTheme;
+  localStorage.setItem("darkTheme", darkTheme);
+  checkDarkTheme();
+});
+
+function checkDarkTheme() {
+  var storedTheme = localStorage.getItem("darkTheme");
+  if (darkTheme === null) {
+    darkTheme = false;
+    localStorage.setItem("darkTheme", darkTheme);
+  }{
+    darkTheme = storedTheme === "true";
+  }
+  if (darkTheme == true) {
+    document.body.classList.add("dark-theme");
+  }
+  else {
+    document.body.classList.remove("dark-theme");
+  }
+}
 
 function getExamData() {
   if (
@@ -266,16 +295,15 @@ function checkedAnswered() {
   }
 }
 
-function submitExam() {
+function submitExam(timeOut) {
   var grade = 0;
   for (let i = 0; i < questions.length; i++) {
     if (questions[i].userAnswer === questions[i].isCorrect) {
       grade++;
     }
   }
-  console.log(getRemainingTime());
   var output = {
-    escapedTime: getRemainingTime(),
+    escapedTime: timeOut ? questions.length + " : 00"  :getEscapedTime(),
     correct: grade,
     totalQuestions: questions.length,
   };
@@ -285,31 +313,30 @@ function submitExam() {
 }
 submitButton.addEventListener("click", function (e) {
   e.preventDefault();
+  pauseTimer();
   checkedAnswered();
-  // var confirmSubmit = confirm("Are you sure you want to submit the exam?");
-  // if (confirmSubmit) {
-  //   submitExam();
-  // }
-  // Find unanswered questions
-  var unansweredIndexes = [];
-  for (let i = 0; i < questions.length; i++) {
-    if (
-      questions[i].state !== 1 && // not answered
-      questions[i].state !== 2 // not just bookmarked
-    ) {
-      unansweredIndexes.push(i + 1); // 1-based index for display
-    }
-  }
-
-  let confirmMessage = "Are you sure you want to submit the exam?";
-  if (unansweredIndexes.length > 0) {
-    confirmMessage = `Are you sure you want to submit the exam? You have ${
-      unansweredIndexes.length
-    } unanswered question(s): ${unansweredIndexes.join(", ")}.`;
-  }
-
-  var confirmSubmit = confirm(confirmMessage);
-  if (confirmSubmit) {
-    submitExam();
-  }
+  alertOverlaySubmit.classList.remove("hidden");
 });
+
+yesButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  alertOverlaySubmit.classList.add("hidden");
+  submitExam(false);
+});
+noButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  alertOverlaySubmit.classList.add("hidden");
+  resumeTimer();
+});
+function timeOutButtonClose(e) {
+  e.preventDefault();
+  alertOverlayTimeOut.classList.add("hidden");
+  submitExam(true);
+}
+function timeOut() {
+  pauseTimer();
+  checkedAnswered();
+  alertOverlayTimeOut.classList.remove("hidden");
+setTimeout(() => submitExam(true), 10000);
+}
+timeoutButton.addEventListener("click", timeOutButtonClose);
