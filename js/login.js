@@ -205,7 +205,7 @@ submit.addEventListener("click", async function (e) {
 
     localStorage.setItem("isLoggedIn", "true");
 
-    location.replace('start.html');
+    location.replace('start');
   }else
   {
     errorBox.textContent = "Incorrect Email OR password.";
