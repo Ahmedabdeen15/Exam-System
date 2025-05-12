@@ -98,6 +98,9 @@ h1, h2, h3, h4, h5, h6 {
   --social-hover-bg: rgba(255, 255, 255, 0.15);
   --toggle-theme: yellow;
 }
+.dark-theme .primary-btn{
+  color :white;
+}
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
