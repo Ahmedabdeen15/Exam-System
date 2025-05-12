@@ -99,6 +99,156 @@
       "question": "What is <hr> used for?",
       "answers": ["Line", "Break", "Space", "Style"],
       "isCorrect": "Line"
+    },
+    {
+      "question": "What is HTML?",
+      "answers": ["Markup", "Language", "Both", "None"],
+      "isCorrect": "Both"
+    },
+    {
+      "question": "What opens an HTML file?",
+      "answers": ["Browser", "Editor", "OS", "Compiler"],
+      "isCorrect": "Browser"
+    },
+    {
+      "question": "What is the root tag?",
+      "answers": ["<html>", "<head>", "<body>", "<root>"],
+      "isCorrect": "<html>"
+    },
+    {
+      "question": "What is <head> for?",
+      "answers": ["Metadata", "Content", "Both", "None"],
+      "isCorrect": "Metadata"
+    },
+    {
+      "question": "What is <body> for?",
+      "answers": ["Content", "Metadata", "Both", "None"],
+      "isCorrect": "Content"
+    },
+    {
+      "question": "What is <div>?",
+      "answers": ["Container", "Text", "Image", "List"],
+      "isCorrect": "Container"
+    },
+    {
+      "question": "What is <span>?",
+      "answers": ["Inline", "Block", "Both", "None"],
+      "isCorrect": "Inline"
+    },
+    {
+      "question": "What is <nav>?",
+      "answers": ["Links", "Text", "Image", "Form"],
+      "isCorrect": "Links"
+    },
+    {
+      "question": "What is <footer>?",
+      "answers": ["Bottom", "Top", "Middle", "Side"],
+      "isCorrect": "Bottom"
+    },
+    {
+      "question": "What is <header>?",
+      "answers": ["Top", "Bottom", "Middle", "Side"],
+      "isCorrect": "Top"
+    },
+    {
+      "question": "What is <main>?",
+      "answers": ["Content", "Nav", "Footer", "Head"],
+      "isCorrect": "Content"
+    },
+    {
+      "question": "What is <section>?",
+      "answers": ["Group", "Text", "Image", "Link"],
+      "isCorrect": "Group"
+    },
+    {
+      "question": "What is <article>?",
+      "answers": ["Content", "Nav", "Footer", "Head"],
+      "isCorrect": "Content"
+    },
+    {
+      "question": "What is <aside>?",
+      "answers": ["Side", "Main", "Top", "Bottom"],
+      "isCorrect": "Side"
+    },
+    {
+      "question": "What is <figure>?",
+      "answers": ["Media", "Text", "Form", "List"],
+      "isCorrect": "Media"
+    },
+    {
+      "question": "What is <figcaption>?",
+      "answers": ["Caption", "Image", "Video", "Audio"],
+      "isCorrect": "Caption"
+    },
+    {
+      "question": "What is <time>?",
+      "answers": ["DateTime", "Text", "Number", "Date"],
+      "isCorrect": "DateTime"
+    },
+    {
+      "question": "What is <mark>?",
+      "answers": ["Highlight", "Bold", "Italic", "Underline"],
+      "isCorrect": "Highlight"
+    },
+    {
+      "question": "What is <progress>?",
+      "answers": ["Bar", "Text", "Number", "Circle"],
+      "isCorrect": "Bar"
+    },
+    {
+      "question": "What is <meter>?",
+      "answers": ["Gauge", "Text", "Number", "Bar"],
+      "isCorrect": "Gauge"
+    },
+    {
+      "question": "What is <datalist>?",
+      "answers": ["Options", "Text", "List", "Select"],
+      "isCorrect": "Options"
+    },
+    {
+      "question": "What is <output>?",
+      "answers": ["Result", "Input", "Text", "Form"],
+      "isCorrect": "Result"
+    },
+    {
+      "question": "What is <canvas>?",
+      "answers": ["Drawing", "Image", "Video", "Audio"],
+      "isCorrect": "Drawing"
+    },
+    {
+      "question": "What is <svg>?",
+      "answers": ["Vector", "Image", "Video", "Audio"],
+      "isCorrect": "Vector"
+    },
+    {
+      "question": "What is <iframe>?",
+      "answers": ["Embed", "Image", "Video", "Audio"],
+      "isCorrect": "Embed"
+    },
+    {
+      "question": "What is <noscript>?",
+      "answers": ["Fallback", "Script", "Style", "Meta"],
+      "isCorrect": "Fallback"
+    },
+    {
+      "question": "What is <template>?",
+      "answers": ["Reuse", "Text", "Image", "Video"],
+      "isCorrect": "Reuse"
+    },
+    {
+      "question": "What is <slot>?",
+      "answers": ["Placeholder", "Text", "Image", "Video"],
+      "isCorrect": "Placeholder"
+    },
+    {
+      "question": "What is <dialog>?",
+      "answers": ["Popup", "Text", "Image", "Video"],
+      "isCorrect": "Popup"
+    },
+    {
+      "question": "What is <details>?",
+      "answers": ["Toggle", "Text", "Image", "Video"],
+      "isCorrect": "Toggle"
     }
   ]
 }

@@ -99,6 +99,156 @@
       "question": "What enables overloading?",
       "answers": ["overload", "virtual", "override", "None"],
       "isCorrect": "None"
+    },
+    {
+      "question": "What is C#?",
+      "answers": ["Language", "OS", "DB", "Tool"],
+      "isCorrect": "Language"
+    },
+    {
+      "question": "What is .NET?",
+      "answers": ["Framework", "Language", "OS", "DB"],
+      "isCorrect": "Framework"
+    },
+    {
+      "question": "What is CLR?",
+      "answers": ["Runtime", "Compiler", "OS", "Library"],
+      "isCorrect": "Runtime"
+    },
+    {
+      "question": "What is JIT?",
+      "answers": ["Compiler", "Runtime", "DB", "OS"],
+      "isCorrect": "Compiler"
+    },
+    {
+      "question": "What is MSIL?",
+      "answers": ["Bytecode", "Compiler", "Runtime", "OS"],
+      "isCorrect": "Bytecode"
+    },
+    {
+      "question": "What is GC?",
+      "answers": ["Memory", "Thread", "File", "Network"],
+      "isCorrect": "Memory"
+    },
+    {
+      "question": "What is LINQ?",
+      "answers": ["Query", "Loop", "DB", "Thread"],
+      "isCorrect": "Query"
+    },
+    {
+      "question": "What is async?",
+      "answers": ["Thread", "Loop", "Query", "DB"],
+      "isCorrect": "Thread"
+    },
+    {
+      "question": "What is await?",
+      "answers": ["Async", "Loop", "Query", "DB"],
+      "isCorrect": "Async"
+    },
+    {
+      "question": "What is var?",
+      "answers": ["Type", "Loop", "Class", "DB"],
+      "isCorrect": "Type"
+    },
+    {
+      "question": "What is const?",
+      "answers": ["Fixed", "Loop", "Class", "DB"],
+      "isCorrect": "Fixed"
+    },
+    {
+      "question": "What is readonly?",
+      "answers": ["Runtime", "Compile", "Both", "None"],
+      "isCorrect": "Runtime"
+    },
+    {
+      "question": "What is enum?",
+      "answers": ["Values", "Loop", "Class", "DB"],
+      "isCorrect": "Values"
+    },
+    {
+      "question": "What is struct?",
+      "answers": ["Value", "Ref", "Both", "None"],
+      "isCorrect": "Value"
+    },
+    {
+      "question": "What is class?",
+      "answers": ["Ref", "Value", "Both", "None"],
+      "isCorrect": "Ref"
+    },
+    {
+      "question": "What is override?",
+      "answers": ["Modify", "Create", "Delete", "Copy"],
+      "isCorrect": "Modify"
+    },
+    {
+      "question": "What is virtual?",
+      "answers": ["Override", "New", "Both", "None"],
+      "isCorrect": "Override"
+    },
+    {
+      "question": "What is abstract?",
+      "answers": ["No instance", "Instance", "Both", "None"],
+      "isCorrect": "No instance"
+    },
+    {
+      "question": "What is interface?",
+      "answers": ["Contract", "Class", "Both", "None"],
+      "isCorrect": "Contract"
+    },
+    {
+      "question": "What is delegate?",
+      "answers": ["Pointer", "Value", "Both", "None"],
+      "isCorrect": "Pointer"
+    },
+    {
+      "question": "What is event?",
+      "answers": ["Delegate", "Class", "Both", "None"],
+      "isCorrect": "Delegate"
+    },
+    {
+      "question": "What is lambda?",
+      "answers": ["Function", "Value", "Both", "None"],
+      "isCorrect": "Function"
+    },
+    {
+      "question": "What is namespace?",
+      "answers": ["Container", "Class", "Both", "None"],
+      "isCorrect": "Container"
+    },
+    {
+      "question": "What is using?",
+      "answers": ["Import", "Export", "Both", "None"],
+      "isCorrect": "Import"
+    },
+    {
+      "question": "What is this?",
+      "answers": ["Instance", "Class", "Both", "None"],
+      "isCorrect": "Instance"
+    },
+    {
+      "question": "What is base?",
+      "answers": ["Parent", "Child", "Both", "None"],
+      "isCorrect": "Parent"
+    },
+    {
+      "question": "What is new?",
+      "answers": ["Create", "Delete", "Both", "None"],
+      "isCorrect": "Create"
+    },
+    {
+      "question": "What is typeof?",
+      "answers": ["Operator", "Function", "Both", "None"],
+      "isCorrect": "Operator"
+    },
+    {
+      "question": "What is is?",
+      "answers": ["Check", "Cast", "Both", "None"],
+      "isCorrect": "Check"
+    },
+    {
+      "question": "What is as?",
+      "answers": ["Cast", "Check", "Both", "None"],
+      "isCorrect": "Cast"
     }
   ]
 }

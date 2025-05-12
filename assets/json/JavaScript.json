@@ -99,6 +99,156 @@
       "question": "What is this keyword?",
       "answers": ["Global", "Current", "Parent", "None"],
       "isCorrect": "Current"
+    },
+    {
+      "question": "What is JS?",
+      "answers": ["Language", "Style", "Markup", "OS"],
+      "isCorrect": "Language"
+    },
+    {
+      "question": "What is ES6?",
+      "answers": ["Version", "Library", "Framework", "Tool"],
+      "isCorrect": "Version"
+    },
+    {
+      "question": "What is const?",
+      "answers": ["Fixed", "Variable", "Both", "None"],
+      "isCorrect": "Fixed"
+    },
+    {
+      "question": "What is arrow function?",
+      "answers": ["=>", "->", "=>=", "==>"],
+      "isCorrect": "=>"
+    },
+    {
+      "question": "What is template literal?",
+      "answers": ["`${x}`", "'${x}'", "\"${x}\"", "{x}"],
+      "isCorrect": "`${x}`"
+    },
+    {
+      "question": "What is destructuring?",
+      "answers": ["Unpack", "Pack", "Loop", "Delete"],
+      "isCorrect": "Unpack"
+    },
+    {
+      "question": "What is spread operator?",
+      "answers": ["...", "::", ">>", "<<"],
+      "isCorrect": "..."
+    },
+    {
+      "question": "What is rest parameter?",
+      "answers": ["...", "::", ">>", "<<"],
+      "isCorrect": "..."
+    },
+    {
+      "question": "What is Promise?",
+      "answers": ["Async", "Sync", "Both", "None"],
+      "isCorrect": "Async"
+    },
+    {
+      "question": "What is async/await?",
+      "answers": ["Promise", "Callback", "Loop", "Error"],
+      "isCorrect": "Promise"
+    },
+    {
+      "question": "What is map()?",
+      "answers": ["Transform", "Filter", "Sort", "Delete"],
+      "isCorrect": "Transform"
+    },
+    {
+      "question": "What is filter()?",
+      "answers": ["Select", "Transform", "Sort", "Delete"],
+      "isCorrect": "Select"
+    },
+    {
+      "question": "What is reduce()?",
+      "answers": ["Accumulate", "Filter", "Map", "Sort"],
+      "isCorrect": "Accumulate"
+    },
+    {
+      "question": "What is hoisting?",
+      "answers": ["Move", "Delete", "Copy", "Hide"],
+      "isCorrect": "Move"
+    },
+    {
+      "question": "What is scope?",
+      "answers": ["Access", "Delete", "Copy", "Hide"],
+      "isCorrect": "Access"
+    },
+    {
+      "question": "What is callback?",
+      "answers": ["Function", "Value", "Object", "Array"],
+      "isCorrect": "Function"
+    },
+    {
+      "question": "What is event loop?",
+      "answers": ["Queue", "Stack", "Heap", "Tree"],
+      "isCorrect": "Queue"
+    },
+    {
+      "question": "What is prototype?",
+      "answers": ["Inherit", "Copy", "Delete", "Hide"],
+      "isCorrect": "Inherit"
+    },
+    {
+      "question": "What is class?",
+      "answers": ["Blueprint", "Object", "Function", "Array"],
+      "isCorrect": "Blueprint"
+    },
+    {
+      "question": "What is constructor?",
+      "answers": ["Init", "Delete", "Copy", "Hide"],
+      "isCorrect": "Init"
+    },
+    {
+      "question": "What is static method?",
+      "answers": ["Class", "Instance", "Both", "None"],
+      "isCorrect": "Class"
+    },
+    {
+      "question": "What is module?",
+      "answers": ["File", "Code", "Both", "None"],
+      "isCorrect": "Both"
+    },
+    {
+      "question": "What is import?",
+      "answers": ["Bring", "Send", "Delete", "Hide"],
+      "isCorrect": "Bring"
+    },
+    {
+      "question": "What is export?",
+      "answers": ["Send", "Bring", "Delete", "Hide"],
+      "isCorrect": "Send"
+    },
+    {
+      "question": "What is try/catch?",
+      "answers": ["Error", "Loop", "Function", "Object"],
+      "isCorrect": "Error"
+    },
+    {
+      "question": "What is throw?",
+      "answers": ["Error", "Value", "Object", "Array"],
+      "isCorrect": "Error"
+    },
+    {
+      "question": "What is finally?",
+      "answers": ["Always", "Never", "Sometimes", "Error"],
+      "isCorrect": "Always"
+    },
+    {
+      "question": "What is Date?",
+      "answers": ["Object", "Number", "String", "Array"],
+      "isCorrect": "Object"
+    },
+    {
+      "question": "What is Math?",
+      "answers": ["Object", "Number", "String", "Array"],
+      "isCorrect": "Object"
+    },
+    {
+      "question": "What is RegExp?",
+      "answers": ["Pattern", "Value", "Object", "Array"],
+      "isCorrect": "Pattern"
     }
   ]
 }

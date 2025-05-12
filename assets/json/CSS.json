@@ -99,6 +99,156 @@
       "question": "Which makes a shadow?",
       "answers": ["box-shadow", "shadow", "blur", "drop-shadow"],
       "isCorrect": "box-shadow"
+    },
+    {
+      "question": "What is CSS?",
+      "answers": ["Styling", "Scripting", "Markup", "Database"],
+      "isCorrect": "Styling"
+    },
+    {
+      "question": "What does 'Cascading' mean?",
+      "answers": ["Priority", "Order", "Waterfall", "Style"],
+      "isCorrect": "Priority"
+    },
+    {
+      "question": "How to link CSS?",
+      "answers": ["<link>", "<style>", "<css>", "<import>"],
+      "isCorrect": "<link>"
+    },
+    {
+      "question": "What is inline CSS?",
+      "answers": ["In HTML", "External", "Internal", "None"],
+      "isCorrect": "In HTML"
+    },
+    {
+      "question": "What is internal CSS?",
+      "answers": ["<style>", "<link>", "<css>", "<script>"],
+      "isCorrect": "<style>"
+    },
+    {
+      "question": "What is external CSS?",
+      "answers": [".css file", "<style>", "Inline", "<script>"],
+      "isCorrect": ".css file"
+    },
+    {
+      "question": "What is specificity?",
+      "answers": ["Priority", "Order", "Type", "Class"],
+      "isCorrect": "Priority"
+    },
+    {
+      "question": "What is !important?",
+      "answers": ["Override", "Ignore", "Delete", "Add"],
+      "isCorrect": "Override"
+    },
+    {
+      "question": "What is rem?",
+      "answers": ["Root em", "Relative", "Fixed", "Pixel"],
+      "isCorrect": "Root em"
+    },
+    {
+      "question": "What is em?",
+      "answers": ["Relative", "Fixed", "Pixel", "Root"],
+      "isCorrect": "Relative"
+    },
+    {
+      "question": "What is vh?",
+      "answers": ["Viewport", "Pixel", "Percent", "Fixed"],
+      "isCorrect": "Viewport"
+    },
+    {
+      "question": "What is vw?",
+      "answers": ["Viewport", "Pixel", "Percent", "Fixed"],
+      "isCorrect": "Viewport"
+    },
+    {
+      "question": "What is % unit?",
+      "answers": ["Relative", "Fixed", "Viewport", "Pixel"],
+      "isCorrect": "Relative"
+    },
+    {
+      "question": "What is position: static?",
+      "answers": ["Default", "Fixed", "Relative", "Absolute"],
+      "isCorrect": "Default"
+    },
+    {
+      "question": "What is position: relative?",
+      "answers": ["Offset", "Fixed", "Static", "None"],
+      "isCorrect": "Offset"
+    },
+    {
+      "question": "What is position: absolute?",
+      "answers": ["Parent", "Viewport", "Static", "None"],
+      "isCorrect": "Parent"
+    },
+    {
+      "question": "What is position: fixed?",
+      "answers": ["Viewport", "Parent", "Static", "None"],
+      "isCorrect": "Viewport"
+    },
+    {
+      "question": "What is position: sticky?",
+      "answers": ["Scroll", "Fixed", "Static", "None"],
+      "isCorrect": "Scroll"
+    },
+    {
+      "question": "What is display: block?",
+      "answers": ["Full width", "Inline", "Flex", "None"],
+      "isCorrect": "Full width"
+    },
+    {
+      "question": "What is display: inline?",
+      "answers": ["No width", "Block", "Flex", "None"],
+      "isCorrect": "No width"
+    },
+    {
+      "question": "What is display: inline-block?",
+      "answers": ["Both", "Block", "Inline", "None"],
+      "isCorrect": "Both"
+    },
+    {
+      "question": "What is display: grid?",
+      "answers": ["2D", "1D", "Flex", "None"],
+      "isCorrect": "2D"
+    },
+    {
+      "question": "What is flex-direction?",
+      "answers": ["Flow", "Wrap", "Align", "None"],
+      "isCorrect": "Flow"
+    },
+    {
+      "question": "What is justify-content?",
+      "answers": ["Horizontal", "Vertical", "Both", "None"],
+      "isCorrect": "Horizontal"
+    },
+    {
+      "question": "What is align-items?",
+      "answers": ["Vertical", "Horizontal", "Both", "None"],
+      "isCorrect": "Vertical"
+    },
+    {
+      "question": "What is flex-wrap?",
+      "answers": ["Multi-line", "Single", "None", "Both"],
+      "isCorrect": "Multi-line"
+    },
+    {
+      "question": "What is gap in CSS?",
+      "answers": ["Spacing", "Border", "Margin", "None"],
+      "isCorrect": "Spacing"
+    },
+    {
+      "question": "What is transition?",
+      "answers": ["Animation", "Effect", "Color", "None"],
+      "isCorrect": "Animation"
+    },
+    {
+      "question": "What is transform?",
+      "answers": ["Modify", "Animate", "Delete", "None"],
+      "isCorrect": "Modify"
+    },
+    {
+      "question": "What is @media?",
+      "answers": ["Responsive", "Print", "Screen", "All"],
+      "isCorrect": "Responsive"
     }
   ]
 }
