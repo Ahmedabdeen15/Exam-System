@@ -207,6 +207,11 @@ nav {
   z-index: 0;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+  transition: filter 0.3s ease;
+}
+
+.dark-theme .background-video {
+  filter: brightness(0.5) contrast(1.5);
 }
 
 .content-overlay {
@@ -499,6 +504,7 @@ nav {
 }
 
 .form-group input {
+  color: var(--text-primary);
   width: 100%;
   padding: 12px 15px;
   border: 1px solid var(--border-color);

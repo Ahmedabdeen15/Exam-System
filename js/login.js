@@ -1,15 +1,28 @@
 /// Light and dark Theme
-// var themeIcon = document.getElementById('toggle-theme');
+var themeIcon = document.getElementById('toggle-theme');
 
-// themeIcon.addEventListener('click', function() {
-//   document.body.classList.toggle('dark-theme');
+document.addEventListener('DOMContentLoaded', function() {
+  // Apply saved theme if it exists
+  if (localStorage.getItem('darkTheme')) {
+    document.body.classList.add('dark-theme');
+    themeIcon.innerHTML = '<i class="fa-solid fa-sun" id="toggleRThemeIcon"></i>';
+  } else {
+    document.body.classList.remove('dark-theme');
+    themeIcon.innerHTML = '<i class="fa-solid fa-moon" id="toggleRThemeIcon"></i>';
+  }
+});
 
-//   if (document.body.classList.contains('dark-theme')) {
-//     themeIcon.innerHTML = '<i class="fa-solid fa-sun" id="toggleThemeIcon"></i>';
-//   } else {
-//     themeIcon.innerHTML = '<i class="fa-solid fa-moon" id="toggleThemeIcon"></i>';
-//   }
-// });
+themeIcon.addEventListener('click', function() {
+  document.body.classList.toggle('dark-theme');
+
+  if (document.body.classList.contains('dark-theme')) {
+    themeIcon.innerHTML = '<i class="fa-solid fa-sun" id="toggleThemeIcon"></i>';
+    localStorage.setItem('darkTheme', true);
+  } else {
+    themeIcon.innerHTML = '<i class="fa-solid fa-moon" id="toggleThemeIcon"></i>';
+    localStorage.setItem('darkTheme', false);
+  }
+});
 
 // Check if user is already registered - add this at the top of registration.js
 // document.addEventListener('DOMContentLoaded', function() {
@@ -112,7 +125,7 @@ function validateEmail() {
   }
 }
 
-EMAIL.addEventListener("click", validateEmail);
+EMAIL.addEventListener("input", validateEmail);
 
 
 // Main password validation function
@@ -132,7 +145,7 @@ async function validatePassword() {
 }
 
 // Set up event listeners
-PASSWORD.addEventListener("click", function () {
+PASSWORD.addEventListener("input", function () {
   validatePassword();
 });
 
@@ -145,12 +158,42 @@ const savedPassword = localStorage.getItem("userPassword");
 //   eL.preventDefault();
 // });
 
+let errorBox = document.getElementById("login-error-box");
+if (!errorBox) {
+  errorBox = document.createElement("div");
+  errorBox.id = "login-error-box";
+  errorBox.style.display = "none";
+  document.body.appendChild(errorBox);
+}
+
+// Add styles for the error box
+const errorBoxStyle = document.createElement("style");
+errorBoxStyle.textContent = `
+  #login-error-box {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff4b2b;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    font-size: 1.1rem;
+    z-index: 10000;
+    transition: opacity 0.3s;
+    opacity: 0.95;
+  }
+`;
+document.head.appendChild(errorBoxStyle);
+
+
 // Form submission handler
-submit.addEventListener("click", function (e) {
+submit.addEventListener("click", async function (e) {
   e.preventDefault();
   // Validate all fields
   const isEmailValid = validateEmail();
-  const isPasswordValid = validatePassword();
+  const isPasswordValid = await validatePassword();
 
   // Only submit if all validations pass
   if (
@@ -163,6 +206,13 @@ submit.addEventListener("click", function (e) {
     localStorage.setItem("isLoggedIn", "true");
 
     location.replace('start.html');
+  }else
+  {
+    errorBox.textContent = "Incorrect Email OR password.";
+    errorBox.style.display = "block";
+    setTimeout(() => {
+      errorBox.style.display = "none";
+    }, 3000); 
   }
 });
 

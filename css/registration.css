@@ -83,6 +83,7 @@ input, .form-group, .EmailSpan, .PassSpan, .RepeatPassSpan, .FNameSpan, .LNameSp
   --icon-color: #777;
   --toggle-icon: black; /* moon */
   --social-hover-bg: rgba(255, 255, 255, 0.3);
+  --bg-overlay: rgba(255, 255, 255, 0.8);
 }
 
 /* Dark Theme Class */
@@ -105,6 +106,7 @@ input, .form-group, .EmailSpan, .PassSpan, .RepeatPassSpan, .FNameSpan, .LNameSp
   --icon-color: #aaaaaa;
   --toggle-icon: yellow; /* sun */
   --social-hover-bg: rgba(255, 255, 255, 0.15);
+  --bg-overlay: rgba(30, 30, 30, 0.85);
 }
 
 /* Add this to your existing CSS */
@@ -140,14 +142,16 @@ main {
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(
-      rgba(255, 255, 255, 0.8),
-      rgba(255, 255, 255, 0.8)
+      var(--bg-overlay),
+      var(--bg-overlay)
     ),
     url("../assets/images/coverImage.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  transition: background-image 0.3s ease;
 }
+
 
 .left-side header {
   position: absolute;
@@ -561,7 +565,7 @@ a:focus,
   justify-content: center;
   background-color: var(--bg-primary);
   box-shadow: -5px 0 15px var(--shadow-color);
-  background: linear-gradient(45deg, #fffde4cc, #a8edea);
+  background: linear-gradient(45deg, --bg-overlay);
   overflow: hidden;
 }
 
@@ -576,7 +580,7 @@ a:focus,
 
 .motivation-text {
   font-size: 2.5rem;
-  color: #170202;
+  color: var(--text-primary);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   line-height: 1.4;
   opacity: 0;

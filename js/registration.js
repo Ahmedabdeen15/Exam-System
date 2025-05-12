@@ -1,15 +1,17 @@
-/// Light and dark Theme
-// var themeIcon = document.getElementById('toggle-R-theme');
+// Light and dark Theme
+var themeIcon = document.getElementById('toggle-R-theme');
 
-// themeIcon.addEventListener('click', function() {
-//   document.body.classList.toggle('dark-theme');
+themeIcon.addEventListener('click', function() {
+  document.body.classList.toggle('dark-theme');
 
-//   if (document.body.classList.contains('dark-theme')) {
-//     themeIcon.innerHTML = '<i class="fa-solid fa-sun" id="toggleRThemeIcon"></i>';
-//   } else {
-//     themeIcon.innerHTML = '<i class="fa-solid fa-moon" id="toggleRThemeIcon"></i>';
-//   }
-// });
+  if (document.body.classList.contains('dark-theme')) {
+    themeIcon.innerHTML = '<i class="fa-solid fa-sun" id="toggleRThemeIcon"></i>';
+    localStorage.setItem('darkTheme', true);
+  } else {
+    themeIcon.innerHTML = '<i class="fa-solid fa-moon" id="toggleRThemeIcon"></i>';
+    localStorage.setItem('darkTheme', false);
+  }
+});
 
 /*
  * There is no direct way in JavaScript to clear the entire browser cache (including all cached files, cookies, etc.) for security reasons.
@@ -505,7 +507,7 @@ submit.addEventListener("click", async function (e) {
     localStorage.setItem("isRegistered", "true");
 
     // Redirect to login page after successful registration
-    location.replace("login.html");
+    location.replace("login");
   }
 });
 /*

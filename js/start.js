@@ -1,3 +1,14 @@
+// // Check if there's a saved theme preference when page loads
+// document.addEventListener('DOMContentLoaded', function() {
+//   // Apply saved theme if it exists
+//   if (localStorage.getItem('theme') === 'dark') {
+//     document.body.classList.add('dark-theme');
+//     themeIcon.innerHTML = '<i class="fa-solid fa-sun" id="toggleRThemeIcon"></i>';
+//   } else {
+//     document.body.classList.remove('dark-theme');
+//     themeIcon.innerHTML = '<i class="fa-solid fa-moon" id="toggleRThemeIcon"></i>';
+//   }
+// });
 var darkTheme;
 document.addEventListener("DOMContentLoaded", () => {
   setTheme();
