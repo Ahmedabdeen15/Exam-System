@@ -108,7 +108,9 @@ input, .form-group, .EmailSpan, .PassSpan, .RepeatPassSpan, .FNameSpan, .LNameSp
   --social-hover-bg: rgba(255, 255, 255, 0.15);
   --bg-overlay: rgba(30, 30, 30, 0.85);
 }
-
+.dark-theme .form-group input{
+  color :white;
+}
 /* Add this to your existing CSS */
 html,
 body {
