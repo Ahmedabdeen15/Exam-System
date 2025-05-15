@@ -139,3 +139,10 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(showContent, 300);
   }
 });
+
+
+window.addEventListener("unload", function () {
+  sessionStorage.removeItem("isLoggedIn");
+  window.location.replace("index");
+});
+
